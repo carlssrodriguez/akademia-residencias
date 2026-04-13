@@ -1,0 +1,14 @@
+# Archivos de datos crudos — demasiado grandes para GitHub
+*.ods
+
+# CSVs intermedios grandes — se regeneran con el código
+piramide_limpia.csv
+
+# Entorno Python
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
