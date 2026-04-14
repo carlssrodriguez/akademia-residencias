@@ -1,0 +1,3411 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_901fe8a95a91bfc3b4a5755fe767d86e {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style="position: fixed; bottom: 40px; left: 40px; z-index: 1000;
+     background: white; padding: 12px; border-radius: 8px;
+     border: 1px solid #ccc; font-size: 13px; font-family: Arial">
+  <b>Perfiles estratégicos</b><br>
+  <span style="color:red">●</span> Zona premium<br>
+  <span style="color:blue">●</span> Gran ciudad<br>
+  <span style="color:green">●</span> Perfil estándar<br>
+  <span style="color:orange">●</span> Solvencia ajustada
+</div>
+    
+            <div class="folium-map" id="map_901fe8a95a91bfc3b4a5755fe767d86e" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_901fe8a95a91bfc3b4a5755fe767d86e = L.map(
+                "map_901fe8a95a91bfc3b4a5755fe767d86e",
+                {
+                    center: [40.4, -3.7],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_06431fe8d0f8ec5129a738596c506f54 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_06431fe8d0f8ec5129a738596c506f54.addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+            var circle_marker_116e33516d948a39db53c998175c7e9c = L.circleMarker(
+                [40.43498339215687, -3.805700901960784],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_6815859f33c8eec2d242cb893a83e613 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_14d5c058ff0bbb21dffc3a79106e7b90 = $(`<div id="html_14d5c058ff0bbb21dffc3a79106e7b90" style="width: 100.0%; height: 100.0%;">             <b>Pozuelo de Alarcón</b><br>             Posición: #1<br>             F-of-M: 0.403<br>             Renta hogar: 83,812€<br>             Mayores 75+: 7,192<br>             Perfil: Zona premium — máxima solvencia             </div>`)[0];
+                popup_6815859f33c8eec2d242cb893a83e613.setContent(html_14d5c058ff0bbb21dffc3a79106e7b90);
+            
+        
+
+        circle_marker_116e33516d948a39db53c998175c7e9c.bindPopup(popup_6815859f33c8eec2d242cb893a83e613)
+        ;
+
+        
+    
+    
+            circle_marker_116e33516d948a39db53c998175c7e9c.bindTooltip(
+                `<div>
+                     Pozuelo de Alarcón
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_791fa0c9a01a9262d11ea51b4a2e99a2 = L.circleMarker(
+                [41.61568675, 2.01816175],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_591eada3f98ef63a7ae2f963d32d0dff = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a0ae7a74adac590ce8ee68090a6cff1b = $(`<div id="html_a0ae7a74adac590ce8ee68090a6cff1b" style="width: 100.0%; height: 100.0%;">             <b>Matadepera</b><br>             Posición: #2<br>             F-of-M: 0.328<br>             Renta hogar: 68,286€<br>             Mayores 75+: 757<br>             Perfil: Zona premium — máxima solvencia             </div>`)[0];
+                popup_591eada3f98ef63a7ae2f963d32d0dff.setContent(html_a0ae7a74adac590ce8ee68090a6cff1b);
+            
+        
+
+        circle_marker_791fa0c9a01a9262d11ea51b4a2e99a2.bindPopup(popup_591eada3f98ef63a7ae2f963d32d0dff)
+        ;
+
+        
+    
+    
+            circle_marker_791fa0c9a01a9262d11ea51b4a2e99a2.bindTooltip(
+                `<div>
+                     Matadepera
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c1d1d9a970b81142137124281e34cdcc = L.circleMarker(
+                [40.41240833333333, -3.8883346666666654],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_31f1f7d582d6afe071676fd062359a4b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_047de793e228aeb6e392317a418ff023 = $(`<div id="html_047de793e228aeb6e392317a418ff023" style="width: 100.0%; height: 100.0%;">             <b>Boadilla del Monte</b><br>             Posición: #3<br>             F-of-M: 0.302<br>             Renta hogar: 65,201€<br>             Mayores 75+: 3,011<br>             Perfil: Zona premium — máxima solvencia             </div>`)[0];
+                popup_31f1f7d582d6afe071676fd062359a4b.setContent(html_047de793e228aeb6e392317a418ff023);
+            
+        
+
+        circle_marker_c1d1d9a970b81142137124281e34cdcc.bindPopup(popup_31f1f7d582d6afe071676fd062359a4b)
+        ;
+
+        
+    
+    
+            circle_marker_c1d1d9a970b81142137124281e34cdcc.bindTooltip(
+                `<div>
+                     Boadilla del Monte
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2fbadff62dd069f70214e9a347b368e6 = L.circleMarker(
+                [40.468369844444446, -3.8696833333333336],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_b8737bdff9d9171dc1376c6177553dfd = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_da31f56479b2581ccaa570d5e4f08a86 = $(`<div id="html_da31f56479b2581ccaa570d5e4f08a86" style="width: 100.0%; height: 100.0%;">             <b>Majadahonda</b><br>             Posición: #4<br>             F-of-M: 0.293<br>             Renta hogar: 60,937€<br>             Mayores 75+: 5,384<br>             Perfil: Zona premium — máxima solvencia             </div>`)[0];
+                popup_b8737bdff9d9171dc1376c6177553dfd.setContent(html_da31f56479b2581ccaa570d5e4f08a86);
+            
+        
+
+        circle_marker_2fbadff62dd069f70214e9a347b368e6.bindPopup(popup_b8737bdff9d9171dc1376c6177553dfd)
+        ;
+
+        
+    
+    
+            circle_marker_2fbadff62dd069f70214e9a347b368e6.bindTooltip(
+                `<div>
+                     Majadahonda
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3a79a36d7e61b811cba454919aacc470 = L.circleMarker(
+                [41.46892121568627, 2.0751166274509805],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_9a839c706c71931dc689009bbc00df81 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3619aa6e6e22cc2d91d67ba7d5b7e7e6 = $(`<div id="html_3619aa6e6e22cc2d91d67ba7d5b7e7e6" style="width: 100.0%; height: 100.0%;">             <b>Sant Cugat del Vallès</b><br>             Posición: #5<br>             F-of-M: 0.274<br>             Renta hogar: 58,164€<br>             Mayores 75+: 5,967<br>             Perfil: Zona premium — máxima solvencia             </div>`)[0];
+                popup_9a839c706c71931dc689009bbc00df81.setContent(html_3619aa6e6e22cc2d91d67ba7d5b7e7e6);
+            
+        
+
+        circle_marker_3a79a36d7e61b811cba454919aacc470.bindPopup(popup_9a839c706c71931dc689009bbc00df81)
+        ;
+
+        
+    
+    
+            circle_marker_3a79a36d7e61b811cba454919aacc470.bindTooltip(
+                `<div>
+                     Sant Cugat del Vallès
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ab4724364315ce921106b110c61b9be7 = L.circleMarker(
+                [41.49373375, 2.29469075],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_aa45b7423d273a75a34fb560c1e5fd3e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f40a98cb7549c1cc3910b710ce0430fd = $(`<div id="html_f40a98cb7549c1cc3910b710ce0430fd" style="width: 100.0%; height: 100.0%;">             <b>Alella</b><br>             Posición: #6<br>             F-of-M: 0.270<br>             Renta hogar: 54,485€<br>             Mayores 75+: 945<br>             Perfil: Zona premium — máxima solvencia             </div>`)[0];
+                popup_aa45b7423d273a75a34fb560c1e5fd3e.setContent(html_f40a98cb7549c1cc3910b710ce0430fd);
+            
+        
+
+        circle_marker_ab4724364315ce921106b110c61b9be7.bindPopup(popup_aa45b7423d273a75a34fb560c1e5fd3e)
+        ;
+
+        
+    
+    
+            circle_marker_ab4724364315ce921106b110c61b9be7.bindTooltip(
+                `<div>
+                     Alella
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ba55da31b2bb38e5417c71e6e9b31970 = L.circleMarker(
+                [43.34242693939394, -3.0094764848484847],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_9733ba267b791bfffb4085428d4fc52f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b0b8e2712a5225467280d47c94cbd5cf = $(`<div id="html_b0b8e2712a5225467280d47c94cbd5cf" style="width: 100.0%; height: 100.0%;">             <b>Getxo</b><br>             Posición: #7<br>             F-of-M: 0.249<br>             Renta hogar: 49,016€<br>             Mayores 75+: 9,330<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_9733ba267b791bfffb4085428d4fc52f.setContent(html_b0b8e2712a5225467280d47c94cbd5cf);
+            
+        
+
+        circle_marker_ba55da31b2bb38e5417c71e6e9b31970.bindPopup(popup_9733ba267b791bfffb4085428d4fc52f)
+        ;
+
+        
+    
+    
+            circle_marker_ba55da31b2bb38e5417c71e6e9b31970.bindTooltip(
+                `<div>
+                     Getxo
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f36faa9e0ea18c54893528da7c9539a7 = L.circleMarker(
+                [43.0302895, -2.409788375],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_bae107e15ebfd048355fce4d33433dde = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_59401780a30519fc797249d8ee5b9bde = $(`<div id="html_59401780a30519fc797249d8ee5b9bde" style="width: 100.0%; height: 100.0%;">             <b>Oñati</b><br>             Posición: #8<br>             F-of-M: 0.221<br>             Renta hogar: 42,367€<br>             Mayores 75+: 1,373<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_bae107e15ebfd048355fce4d33433dde.setContent(html_59401780a30519fc797249d8ee5b9bde);
+            
+        
+
+        circle_marker_f36faa9e0ea18c54893528da7c9539a7.bindPopup(popup_bae107e15ebfd048355fce4d33433dde)
+        ;
+
+        
+    
+    
+            circle_marker_f36faa9e0ea18c54893528da7c9539a7.bindTooltip(
+                `<div>
+                     Oñati
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d2bbd9e3bd5bfc8651207719d28f9af5 = L.circleMarker(
+                [43.3134325625, -1.9724440763888889],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_416b14425c947fe13e45e8a134ad0ff6 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_bf495e3c275d01dd078b1b7feb9e449d = $(`<div id="html_bf495e3c275d01dd078b1b7feb9e449d" style="width: 100.0%; height: 100.0%;">             <b>Donostia/San Sebastián</b><br>             Posición: #9<br>             F-of-M: 0.218<br>             Renta hogar: 41,167€<br>             Mayores 75+: 23,273<br>             Perfil: Gran ciudad — mercado masivo             </div>`)[0];
+                popup_416b14425c947fe13e45e8a134ad0ff6.setContent(html_bf495e3c275d01dd078b1b7feb9e449d);
+            
+        
+
+        circle_marker_d2bbd9e3bd5bfc8651207719d28f9af5.bindPopup(popup_416b14425c947fe13e45e8a134ad0ff6)
+        ;
+
+        
+    
+    
+            circle_marker_d2bbd9e3bd5bfc8651207719d28f9af5.bindTooltip(
+                `<div>
+                     Donostia/San Sebastián
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e553133dac3da37960b3651426f67060 = L.circleMarker(
+                [39.525602142857146, -0.4175438571428571],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_1521345d791ea0fa07bfee7a6395d5ea = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d897eacbc77cba0ff3f5287b10eb29fc = $(`<div id="html_d897eacbc77cba0ff3f5287b10eb29fc" style="width: 100.0%; height: 100.0%;">             <b>Godella</b><br>             Posición: #10<br>             F-of-M: 0.211<br>             Renta hogar: 43,360€<br>             Mayores 75+: 1,106<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_1521345d791ea0fa07bfee7a6395d5ea.setContent(html_d897eacbc77cba0ff3f5287b10eb29fc);
+            
+        
+
+        circle_marker_e553133dac3da37960b3651426f67060.bindPopup(popup_1521345d791ea0fa07bfee7a6395d5ea)
+        ;
+
+        
+    
+    
+            circle_marker_e553133dac3da37960b3651426f67060.bindTooltip(
+                `<div>
+                     Godella
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c7903f74f840ccbc921d3b79a123f235 = L.circleMarker(
+                [43.34178052380952, -8.34125757142857],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_fcba3f8e89bd92283ba1bd658dad1045 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6adfd33ac9ead1bfdf0c77631fe5889c = $(`<div id="html_6adfd33ac9ead1bfdf0c77631fe5889c" style="width: 100.0%; height: 100.0%;">             <b>Oleiros</b><br>             Posición: #11<br>             F-of-M: 0.208<br>             Renta hogar: 41,150€<br>             Mayores 75+: 3,760<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_fcba3f8e89bd92283ba1bd658dad1045.setContent(html_6adfd33ac9ead1bfdf0c77631fe5889c);
+            
+        
+
+        circle_marker_c7903f74f840ccbc921d3b79a123f235.bindPopup(popup_fcba3f8e89bd92283ba1bd658dad1045)
+        ;
+
+        
+    
+    
+            circle_marker_c7903f74f840ccbc921d3b79a123f235.bindTooltip(
+                `<div>
+                     Oleiros
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2db1ed5ff064b73f1405b29bff8bca7e = L.circleMarker(
+                [43.03114875, -2.49989475],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_8fb439aca3dc261b3325cf46e4b04ac7 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_51ad801d4896b4a2d47b756968625f3f = $(`<div id="html_51ad801d4896b4a2d47b756968625f3f" style="width: 100.0%; height: 100.0%;">             <b>Aretxabaleta</b><br>             Posición: #12<br>             F-of-M: 0.207<br>             Renta hogar: 40,694€<br>             Mayores 75+: 802<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_8fb439aca3dc261b3325cf46e4b04ac7.setContent(html_51ad801d4896b4a2d47b756968625f3f);
+            
+        
+
+        circle_marker_2db1ed5ff064b73f1405b29bff8bca7e.bindPopup(popup_8fb439aca3dc261b3325cf46e4b04ac7)
+        ;
+
+        
+    
+    
+            circle_marker_2db1ed5ff064b73f1405b29bff8bca7e.bindTooltip(
+                `<div>
+                     Aretxabaleta
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b8fab5b14e9e64d915683b6ed48a923b = L.circleMarker(
+                [42.7871825, -1.691737875],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_c3dee83ae17872f176a4bf6e22c528b5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c656894c69349922bec02d27069702d1 = $(`<div id="html_c656894c69349922bec02d27069702d1" style="width: 100.0%; height: 100.0%;">             <b>Zizur Mayor/Zizur Nagusia</b><br>             Posición: #13<br>             F-of-M: 0.200<br>             Renta hogar: 43,004€<br>             Mayores 75+: 606<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_c3dee83ae17872f176a4bf6e22c528b5.setContent(html_c656894c69349922bec02d27069702d1);
+            
+        
+
+        circle_marker_b8fab5b14e9e64d915683b6ed48a923b.bindPopup(popup_c3dee83ae17872f176a4bf6e22c528b5)
+        ;
+
+        
+    
+    
+            circle_marker_b8fab5b14e9e64d915683b6ed48a923b.bindTooltip(
+                `<div>
+                     Zizur Mayor/Zizur Nagusia
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_14d400f3f890f0ba63cc39e5b4504881 = L.circleMarker(
+                [43.3635784, -2.9933776],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_bbb319256fac28d7ac3a94d07c755e93 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a1a44d29c162a8ac2e64968d6b0680c8 = $(`<div id="html_a1a44d29c162a8ac2e64968d6b0680c8" style="width: 100.0%; height: 100.0%;">             <b>Berango</b><br>             Posición: #14<br>             F-of-M: 0.200<br>             Renta hogar: 42,579€<br>             Mayores 75+: 546<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_bbb319256fac28d7ac3a94d07c755e93.setContent(html_a1a44d29c162a8ac2e64968d6b0680c8);
+            
+        
+
+        circle_marker_14d400f3f890f0ba63cc39e5b4504881.bindPopup(popup_bbb319256fac28d7ac3a94d07c755e93)
+        ;
+
+        
+    
+    
+            circle_marker_14d400f3f890f0ba63cc39e5b4504881.bindTooltip(
+                `<div>
+                     Berango
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_41ecb417b2077d935abb7131bad2df01 = L.circleMarker(
+                [39.5632946, -0.528818],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_99ce989f9116799333ddca6a41984384 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1e622041dc7526940e1fadfd897cc106 = $(`<div id="html_1e622041dc7526940e1fadfd897cc106" style="width: 100.0%; height: 100.0%;">             <b>Eliana, l'</b><br>             Posición: #15<br>             F-of-M: 0.200<br>             Renta hogar: 40,704€<br>             Mayores 75+: 1,499<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_99ce989f9116799333ddca6a41984384.setContent(html_1e622041dc7526940e1fadfd897cc106);
+            
+        
+
+        circle_marker_41ecb417b2077d935abb7131bad2df01.bindPopup(popup_99ce989f9116799333ddca6a41984384)
+        ;
+
+        
+    
+    
+            circle_marker_41ecb417b2077d935abb7131bad2df01.bindTooltip(
+                `<div>
+                     Eliana, l'
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2bb2ec2b79d0fde16e7e735a5d159712 = L.circleMarker(
+                [43.127752, -2.5384518],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_953e5c8f2c4d7f8e76b76832854c7de4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a76783be6fbda1ba3ba37c7865d07888 = $(`<div id="html_a76783be6fbda1ba3ba37c7865d07888" style="width: 100.0%; height: 100.0%;">             <b>Elorrio</b><br>             Posición: #16<br>             F-of-M: 0.198<br>             Renta hogar: 38,338€<br>             Mayores 75+: 843<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_953e5c8f2c4d7f8e76b76832854c7de4.setContent(html_a76783be6fbda1ba3ba37c7865d07888);
+            
+        
+
+        circle_marker_2bb2ec2b79d0fde16e7e735a5d159712.bindPopup(popup_953e5c8f2c4d7f8e76b76832854c7de4)
+        ;
+
+        
+    
+    
+            circle_marker_2bb2ec2b79d0fde16e7e735a5d159712.bindTooltip(
+                `<div>
+                     Elorrio
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0461bf32f1d651cb6510d8f76094ad27 = L.circleMarker(
+                [28.03544925, -15.491529916666666],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_c9966b5c720e6b2c9419c479f907d618 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3868012966bce1eb02802013509dbf25 = $(`<div id="html_3868012966bce1eb02802013509dbf25" style="width: 100.0%; height: 100.0%;">             <b>Santa Brígida</b><br>             Posición: #17<br>             F-of-M: 0.198<br>             Renta hogar: 41,255€<br>             Mayores 75+: 1,544<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_c9966b5c720e6b2c9419c479f907d618.setContent(html_3868012966bce1eb02802013509dbf25);
+            
+        
+
+        circle_marker_0461bf32f1d651cb6510d8f76094ad27.bindPopup(popup_c9966b5c720e6b2c9419c479f907d618)
+        ;
+
+        
+    
+    
+            circle_marker_0461bf32f1d651cb6510d8f76094ad27.bindTooltip(
+                `<div>
+                     Santa Brígida
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_30c42d74d68ae58c07ded6e941b777fd = L.circleMarker(
+                [42.804394, -1.683840090909091],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_be2dbfa2bdf8cd947f00a74dba3449c4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_be3b733377fca00422c0dbec849bdcc7 = $(`<div id="html_be3b733377fca00422c0dbec849bdcc7" style="width: 100.0%; height: 100.0%;">             <b>Barañáin/Barañain</b><br>             Posición: #18<br>             F-of-M: 0.193<br>             Renta hogar: 37,971€<br>             Mayores 75+: 1,701<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_be2dbfa2bdf8cd947f00a74dba3449c4.setContent(html_be3b733377fca00422c0dbec849bdcc7);
+            
+        
+
+        circle_marker_30c42d74d68ae58c07ded6e941b777fd.bindPopup(popup_be2dbfa2bdf8cd947f00a74dba3449c4)
+        ;
+
+        
+    
+    
+            circle_marker_30c42d74d68ae58c07ded6e941b777fd.bindTooltip(
+                `<div>
+                     Barañáin/Barañain
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a17b7fa7adc875488d371ff296d82c79 = L.circleMarker(
+                [42.81466200662252, -1.646618046357616],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_fd454413a96540541b71bb608f660d0c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d8b002e4302450b9fe8d66913b0e0aab = $(`<div id="html_d8b002e4302450b9fe8d66913b0e0aab" style="width: 100.0%; height: 100.0%;">             <b>Pamplona/Iruña</b><br>             Posición: #19<br>             F-of-M: 0.191<br>             Renta hogar: 36,041€<br>             Mayores 75+: 23,793<br>             Perfil: Gran ciudad — mercado masivo             </div>`)[0];
+                popup_fd454413a96540541b71bb608f660d0c.setContent(html_d8b002e4302450b9fe8d66913b0e0aab);
+            
+        
+
+        circle_marker_a17b7fa7adc875488d371ff296d82c79.bindPopup(popup_fd454413a96540541b71bb608f660d0c)
+        ;
+
+        
+    
+    
+            circle_marker_a17b7fa7adc875488d371ff296d82c79.bindTooltip(
+                `<div>
+                     Pamplona/Iruña
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d55e2f3cc6b9aeede8f1851b81155436 = L.circleMarker(
+                [43.45011685714286, -3.898125428571429],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_9f2ba802f6a227cdaf83a054f144f289 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_818a9507ad123c85adb87ff2fa3ec20f = $(`<div id="html_818a9507ad123c85adb87ff2fa3ec20f" style="width: 100.0%; height: 100.0%;">             <b>Santa Cruz de Bezana</b><br>             Posición: #20<br>             F-of-M: 0.188<br>             Renta hogar: 38,041€<br>             Mayores 75+: 850<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_9f2ba802f6a227cdaf83a054f144f289.setContent(html_818a9507ad123c85adb87ff2fa3ec20f);
+            
+        
+
+        circle_marker_d55e2f3cc6b9aeede8f1851b81155436.bindPopup(popup_9f2ba802f6a227cdaf83a054f144f289)
+        ;
+
+        
+    
+    
+            circle_marker_d55e2f3cc6b9aeede8f1851b81155436.bindTooltip(
+                `<div>
+                     Santa Cruz de Bezana
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_56789f20316fd84edeb6da5a371f9bf7 = L.circleMarker(
+                [39.682386, 2.693276],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_f47aac96435ff92ee330616ea0d8cba5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c46789e42411d2e7aa400c10a4ce719c = $(`<div id="html_c46789e42411d2e7aa400c10a4ce719c" style="width: 100.0%; height: 100.0%;">             <b>Bunyola</b><br>             Posición: #21<br>             F-of-M: 0.187<br>             Renta hogar: 37,939€<br>             Mayores 75+: 578<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_f47aac96435ff92ee330616ea0d8cba5.setContent(html_c46789e42411d2e7aa400c10a4ce719c);
+            
+        
+
+        circle_marker_56789f20316fd84edeb6da5a371f9bf7.bindPopup(popup_f47aac96435ff92ee330616ea0d8cba5)
+        ;
+
+        
+    
+    
+            circle_marker_56789f20316fd84edeb6da5a371f9bf7.bindTooltip(
+                `<div>
+                     Bunyola
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7639a166307c6d1338e2060951323f97 = L.circleMarker(
+                [39.610716869565216, 2.7134516956521737],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_9ba039e59e7e25bec314f8e284a13e82 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_50482287098dd673a0172f1b6f606395 = $(`<div id="html_50482287098dd673a0172f1b6f606395" style="width: 100.0%; height: 100.0%;">             <b>Marratxí</b><br>             Posición: #22<br>             F-of-M: 0.182<br>             Renta hogar: 39,660€<br>             Mayores 75+: 2,345<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_9ba039e59e7e25bec314f8e284a13e82.setContent(html_50482287098dd673a0172f1b6f606395);
+            
+        
+
+        circle_marker_7639a166307c6d1338e2060951323f97.bindPopup(popup_9ba039e59e7e25bec314f8e284a13e82)
+        ;
+
+        
+    
+    
+            circle_marker_7639a166307c6d1338e2060951323f97.bindTooltip(
+                `<div>
+                     Marratxí
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_436f40036df70194da49bba65f4e0789 = L.circleMarker(
+                [43.455212625, -7.85527025],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_c669091d2d99714b94a533cf39c047bb = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a1ec54cf21ebff69080550ddb78279c0 = $(`<div id="html_a1ec54cf21ebff69080550ddb78279c0" style="width: 100.0%; height: 100.0%;">             <b>Pontes de García Rodríguez, As</b><br>             Posición: #23<br>             F-of-M: 0.181<br>             Renta hogar: 35,016€<br>             Mayores 75+: 1,253<br>             Perfil: Zona envejecida — solvencia ajustada             </div>`)[0];
+                popup_c669091d2d99714b94a533cf39c047bb.setContent(html_a1ec54cf21ebff69080550ddb78279c0);
+            
+        
+
+        circle_marker_436f40036df70194da49bba65f4e0789.bindPopup(popup_c669091d2d99714b94a533cf39c047bb)
+        ;
+
+        
+    
+    
+            circle_marker_436f40036df70194da49bba65f4e0789.bindTooltip(
+                `<div>
+                     Pontes de García Rodríguez, As
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_42ec3ea6555844622a047d9f82106f0f = L.circleMarker(
+                [43.3126076, -8.246937599999999],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_2b69abea349e539f624496983b2972bd = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e6b80e5ae6b04ff557fdb139152eedf0 = $(`<div id="html_e6b80e5ae6b04ff557fdb139152eedf0" style="width: 100.0%; height: 100.0%;">             <b>Bergondo</b><br>             Posición: #24<br>             F-of-M: 0.181<br>             Renta hogar: 33,636€<br>             Mayores 75+: 953<br>             Perfil: Zona envejecida — solvencia ajustada             </div>`)[0];
+                popup_2b69abea349e539f624496983b2972bd.setContent(html_e6b80e5ae6b04ff557fdb139152eedf0);
+            
+        
+
+        circle_marker_42ec3ea6555844622a047d9f82106f0f.bindPopup(popup_2b69abea349e539f624496983b2972bd)
+        ;
+
+        
+    
+    
+            circle_marker_42ec3ea6555844622a047d9f82106f0f.bindTooltip(
+                `<div>
+                     Bergondo
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ea6af63bfb0021c286e4dfe6eae77eeb = L.circleMarker(
+                [43.14594176923077, -2.9652956923076923],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_ffc53b5916f72d8e64b78d5252376f5d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7b7cd31aedc70b2a4d23e61aa498e8c7 = $(`<div id="html_7b7cd31aedc70b2a4d23e61aa498e8c7" style="width: 100.0%; height: 100.0%;">             <b>Laudio/Llodio</b><br>             Posición: #25<br>             F-of-M: 0.177<br>             Renta hogar: 32,889€<br>             Mayores 75+: 2,486<br>             Perfil: Zona envejecida — solvencia ajustada             </div>`)[0];
+                popup_ffc53b5916f72d8e64b78d5252376f5d.setContent(html_7b7cd31aedc70b2a4d23e61aa498e8c7);
+            
+        
+
+        circle_marker_ea6af63bfb0021c286e4dfe6eae77eeb.bindPopup(popup_ffc53b5916f72d8e64b78d5252376f5d)
+        ;
+
+        
+    
+    
+            circle_marker_ea6af63bfb0021c286e4dfe6eae77eeb.bindTooltip(
+                `<div>
+                     Laudio/Llodio
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_31b84114edc458ca571b3f6315fc88f1 = L.circleMarker(
+                [39.77041666666666, 2.713595333333333],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_2db5fce2ebd32674434b4e85f89bea35 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_cc50f5feac40f50b0eb24833a786e223 = $(`<div id="html_cc50f5feac40f50b0eb24833a786e223" style="width: 100.0%; height: 100.0%;">             <b>Sóller</b><br>             Posición: #26<br>             F-of-M: 0.175<br>             Renta hogar: 34,586€<br>             Mayores 75+: 1,436<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_2db5fce2ebd32674434b4e85f89bea35.setContent(html_cc50f5feac40f50b0eb24833a786e223);
+            
+        
+
+        circle_marker_31b84114edc458ca571b3f6315fc88f1.bindPopup(popup_2db5fce2ebd32674434b4e85f89bea35)
+        ;
+
+        
+    
+    
+            circle_marker_31b84114edc458ca571b3f6315fc88f1.bindTooltip(
+                `<div>
+                     Sóller
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0451611c9014eee7b33a5c3a8ee92d45 = L.circleMarker(
+                [40.9925965, 0.8898115],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_693988ca19f45a1e2f2754fa2e64b26e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_861b8132aa74a8dee9a96912a5208b18 = $(`<div id="html_861b8132aa74a8dee9a96912a5208b18" style="width: 100.0%; height: 100.0%;">             <b>Vandellòs i l'Hospitalet de l'Infant</b><br>             Posición: #27<br>             F-of-M: 0.175<br>             Renta hogar: 35,610€<br>             Mayores 75+: 543<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_693988ca19f45a1e2f2754fa2e64b26e.setContent(html_861b8132aa74a8dee9a96912a5208b18);
+            
+        
+
+        circle_marker_0451611c9014eee7b33a5c3a8ee92d45.bindPopup(popup_693988ca19f45a1e2f2754fa2e64b26e)
+        ;
+
+        
+    
+    
+            circle_marker_0451611c9014eee7b33a5c3a8ee92d45.bindTooltip(
+                `<div>
+                     Vandellòs i l'Hospitalet de l'Infant
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_77b5ff333f75092f2c324ff431c40a67 = L.circleMarker(
+                [43.67341133333334, -7.439006333333332],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_3501a0920b5dce27dcfa5506b1373a87 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_31fd6bd5601326888380196ef93545c8 = $(`<div id="html_31fd6bd5601326888380196ef93545c8" style="width: 100.0%; height: 100.0%;">             <b>Cervo</b><br>             Posición: #28<br>             F-of-M: 0.174<br>             Renta hogar: 32,179€<br>             Mayores 75+: 558<br>             Perfil: Zona envejecida — solvencia ajustada             </div>`)[0];
+                popup_3501a0920b5dce27dcfa5506b1373a87.setContent(html_31fd6bd5601326888380196ef93545c8);
+            
+        
+
+        circle_marker_77b5ff333f75092f2c324ff431c40a67.bindPopup(popup_3501a0920b5dce27dcfa5506b1373a87)
+        ;
+
+        
+    
+    
+            circle_marker_77b5ff333f75092f2c324ff431c40a67.bindTooltip(
+                `<div>
+                     Cervo
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_730cd633305e13feed00c02a6675cdab = L.circleMarker(
+                [39.58515907692308, -0.4608782307692308],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_2a80a0ad761e5885f2b2a453fc895f08 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f543b3b6eef9eb68c3da59cfd6e1aaf1 = $(`<div id="html_f543b3b6eef9eb68c3da59cfd6e1aaf1" style="width: 100.0%; height: 100.0%;">             <b>Bétera</b><br>             Posición: #29<br>             F-of-M: 0.174<br>             Renta hogar: 36,084€<br>             Mayores 75+: 1,672<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_2a80a0ad761e5885f2b2a453fc895f08.setContent(html_f543b3b6eef9eb68c3da59cfd6e1aaf1);
+            
+        
+
+        circle_marker_730cd633305e13feed00c02a6675cdab.bindPopup(popup_2a80a0ad761e5885f2b2a453fc895f08)
+        ;
+
+        
+    
+    
+            circle_marker_730cd633305e13feed00c02a6675cdab.bindTooltip(
+                `<div>
+                     Bétera
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5901e68bcdc6564973227f8ad585899b = L.circleMarker(
+                [39.86843362903226, -4.009764112903226],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_05fa12445e58fa4bbf7f4e65affc0c58 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6755d5851c63cac74595e31cecd7089a = $(`<div id="html_6755d5851c63cac74595e31cecd7089a" style="width: 100.0%; height: 100.0%;">             <b>Toledo</b><br>             Posición: #30<br>             F-of-M: 0.174<br>             Renta hogar: 35,064€<br>             Mayores 75+: 7,089<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_05fa12445e58fa4bbf7f4e65affc0c58.setContent(html_6755d5851c63cac74595e31cecd7089a);
+            
+        
+
+        circle_marker_5901e68bcdc6564973227f8ad585899b.bindPopup(popup_05fa12445e58fa4bbf7f4e65affc0c58)
+        ;
+
+        
+    
+    
+            circle_marker_5901e68bcdc6564973227f8ad585899b.bindTooltip(
+                `<div>
+                     Toledo
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_31aefbb6cbd7216981925a976bbf8a2c = L.circleMarker(
+                [41.97881947540984, 2.819640295081967],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_d8d4ed138626711b79a4c3059b1c2ff9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3989230cb764b84c1bd3d5c3fa92c6bb = $(`<div id="html_3989230cb764b84c1bd3d5c3fa92c6bb" style="width: 100.0%; height: 100.0%;">             <b>Girona</b><br>             Posición: #31<br>             F-of-M: 0.173<br>             Renta hogar: 35,054€<br>             Mayores 75+: 7,818<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_d8d4ed138626711b79a4c3059b1c2ff9.setContent(html_3989230cb764b84c1bd3d5c3fa92c6bb);
+            
+        
+
+        circle_marker_31aefbb6cbd7216981925a976bbf8a2c.bindPopup(popup_d8d4ed138626711b79a4c3059b1c2ff9)
+        ;
+
+        
+    
+    
+            circle_marker_31aefbb6cbd7216981925a976bbf8a2c.bindTooltip(
+                `<div>
+                     Girona
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_af7c4d60eb62282712c8d5d5e9d898c7 = L.circleMarker(
+                [41.212490333333335, 1.1370836666666666],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_d85a99d33dfb22ff6c1234d98ed7800a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d253958ad90043867134bc9881f126d6 = $(`<div id="html_d253958ad90043867134bc9881f126d6" style="width: 100.0%; height: 100.0%;">             <b>Selva del Camp, La</b><br>             Posición: #32<br>             F-of-M: 0.173<br>             Renta hogar: 34,835€<br>             Mayores 75+: 506<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_d85a99d33dfb22ff6c1234d98ed7800a.setContent(html_d253958ad90043867134bc9881f126d6);
+            
+        
+
+        circle_marker_af7c4d60eb62282712c8d5d5e9d898c7.bindPopup(popup_d85a99d33dfb22ff6c1234d98ed7800a)
+        ;
+
+        
+    
+    
+            circle_marker_af7c4d60eb62282712c8d5d5e9d898c7.bindTooltip(
+                `<div>
+                     Selva del Camp, La
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b33013b90704b926d77797427fc8e8d9 = L.circleMarker(
+                [43.46241359863945, -3.818025646258504],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_601405e0e78837633ac6f614bc7d3bee = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3059a1db7a610d8332a1c838755bd3cc = $(`<div id="html_3059a1db7a610d8332a1c838755bd3cc" style="width: 100.0%; height: 100.0%;">             <b>Santander</b><br>             Posición: #33<br>             F-of-M: 0.173<br>             Renta hogar: 31,593€<br>             Mayores 75+: 21,903<br>             Perfil: Gran ciudad — mercado masivo             </div>`)[0];
+                popup_601405e0e78837633ac6f614bc7d3bee.setContent(html_3059a1db7a610d8332a1c838755bd3cc);
+            
+        
+
+        circle_marker_b33013b90704b926d77797427fc8e8d9.bindPopup(popup_601405e0e78837633ac6f614bc7d3bee)
+        ;
+
+        
+    
+    
+            circle_marker_b33013b90704b926d77797427fc8e8d9.bindTooltip(
+                `<div>
+                     Santander
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d59d4e278a05279afddad6164f824ee8 = L.circleMarker(
+                [43.04852985714285, -2.986143857142857],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_f18f452f1b32ed5430d66844a32b9d9d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8ec45bb2c93bc8f93682634447cc15ea = $(`<div id="html_8ec45bb2c93bc8f93682634447cc15ea" style="width: 100.0%; height: 100.0%;">             <b>Amurrio</b><br>             Posición: #34<br>             F-of-M: 0.172<br>             Renta hogar: 33,936€<br>             Mayores 75+: 1,030<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_f18f452f1b32ed5430d66844a32b9d9d.setContent(html_8ec45bb2c93bc8f93682634447cc15ea);
+            
+        
+
+        circle_marker_d59d4e278a05279afddad6164f824ee8.bindPopup(popup_f18f452f1b32ed5430d66844a32b9d9d)
+        ;
+
+        
+    
+    
+            circle_marker_d59d4e278a05279afddad6164f824ee8.bindTooltip(
+                `<div>
+                     Amurrio
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_02a404f14a383d4032755c6877c62d38 = L.circleMarker(
+                [42.85095603614458, -2.677920487951808],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_949fe2c82395a7a5a04b7efd4a88296e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e941ee646a9e4895919ea4c7517e3a87 = $(`<div id="html_e941ee646a9e4895919ea4c7517e3a87" style="width: 100.0%; height: 100.0%;">             <b>Vitoria-Gasteiz</b><br>             Posición: #35<br>             F-of-M: 0.172<br>             Renta hogar: 33,264€<br>             Mayores 75+: 26,970<br>             Perfil: Gran ciudad — mercado masivo             </div>`)[0];
+                popup_949fe2c82395a7a5a04b7efd4a88296e.setContent(html_e941ee646a9e4895919ea4c7517e3a87);
+            
+        
+
+        circle_marker_02a404f14a383d4032755c6877c62d38.bindPopup(popup_949fe2c82395a7a5a04b7efd4a88296e)
+        ;
+
+        
+    
+    
+            circle_marker_02a404f14a383d4032755c6877c62d38.bindTooltip(
+                `<div>
+                     Vitoria-Gasteiz
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3f4fbea5c9459063ef2dffb826425663 = L.circleMarker(
+                [42.1391063, -8.8006888],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_e4c21fba60340185e04e1eed7756d026 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_79c312e14ae7f83fc7329b802308a400 = $(`<div id="html_79c312e14ae7f83fc7329b802308a400" style="width: 100.0%; height: 100.0%;">             <b>Nigrán</b><br>             Posición: #36<br>             F-of-M: 0.171<br>             Renta hogar: 32,921€<br>             Mayores 75+: 1,949<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_e4c21fba60340185e04e1eed7756d026.setContent(html_79c312e14ae7f83fc7329b802308a400);
+            
+        
+
+        circle_marker_3f4fbea5c9459063ef2dffb826425663.bindPopup(popup_e4c21fba60340185e04e1eed7756d026)
+        ;
+
+        
+    
+    
+            circle_marker_3f4fbea5c9459063ef2dffb826425663.bindTooltip(
+                `<div>
+                     Nigrán
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1855ddb252d3a5915292fce290c15466 = L.circleMarker(
+                [37.3742755, -6.045819428571428],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_ff079be0b67d0e5c339e3588f016982a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c379e0ef10f3d26e83ae8ff68bed6367 = $(`<div id="html_c379e0ef10f3d26e83ae8ff68bed6367" style="width: 100.0%; height: 100.0%;">             <b>Tomares</b><br>             Posición: #37<br>             F-of-M: 0.170<br>             Renta hogar: 36,865€<br>             Mayores 75+: 1,314<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_ff079be0b67d0e5c339e3588f016982a.setContent(html_c379e0ef10f3d26e83ae8ff68bed6367);
+            
+        
+
+        circle_marker_1855ddb252d3a5915292fce290c15466.bindPopup(popup_ff079be0b67d0e5c339e3588f016982a)
+        ;
+
+        
+    
+    
+            circle_marker_1855ddb252d3a5915292fce290c15466.bindTooltip(
+                `<div>
+                     Tomares
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e332bbe2f9ba0d31b3a5117ee5b764dc = L.circleMarker(
+                [43.41899333333333, -3.763712666666666],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_86d44919f3ca35fb73fc9d6f481286c3 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_08b917e3e511a1fb8c3fe4043d4b6494 = $(`<div id="html_08b917e3e511a1fb8c3fe4043d4b6494" style="width: 100.0%; height: 100.0%;">             <b>Marina de Cudeyo</b><br>             Posición: #38<br>             F-of-M: 0.170<br>             Renta hogar: 32,079€<br>             Mayores 75+: 578<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_86d44919f3ca35fb73fc9d6f481286c3.setContent(html_08b917e3e511a1fb8c3fe4043d4b6494);
+            
+        
+
+        circle_marker_e332bbe2f9ba0d31b3a5117ee5b764dc.bindPopup(popup_86d44919f3ca35fb73fc9d6f481286c3)
+        ;
+
+        
+    
+    
+            circle_marker_e332bbe2f9ba0d31b3a5117ee5b764dc.bindTooltip(
+                `<div>
+                     Marina de Cudeyo
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2e7969cbdceb731e294b363519749a6c = L.circleMarker(
+                [43.14469290909091, -6.546270181818182],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_0a6b5d9de8c6a337ceb402cbb20a6206 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4ba9ca5bfbad133bb07da7cbd006d06b = $(`<div id="html_4ba9ca5bfbad133bb07da7cbd006d06b" style="width: 100.0%; height: 100.0%;">             <b>Cangas del Narcea</b><br>             Posición: #39<br>             F-of-M: 0.170<br>             Renta hogar: 30,079€<br>             Mayores 75+: 1,951<br>             Perfil: Zona envejecida — solvencia ajustada             </div>`)[0];
+                popup_0a6b5d9de8c6a337ceb402cbb20a6206.setContent(html_4ba9ca5bfbad133bb07da7cbd006d06b);
+            
+        
+
+        circle_marker_2e7969cbdceb731e294b363519749a6c.bindPopup(popup_0a6b5d9de8c6a337ceb402cbb20a6206)
+        ;
+
+        
+    
+    
+            circle_marker_2e7969cbdceb731e294b363519749a6c.bindTooltip(
+                `<div>
+                     Cangas del Narcea
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1a394b0c3c5d421d83811a08ad305391 = L.circleMarker(
+                [42.87600166666667, -5.665014],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_c937b64b45a223464c104dd5a6350d24 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_19bb7a06224225b5e92785aef4635b3d = $(`<div id="html_19bb7a06224225b5e92785aef4635b3d" style="width: 100.0%; height: 100.0%;">             <b>Pola de Gordón, La</b><br>             Posición: #40<br>             F-of-M: 0.170<br>             Renta hogar: 26,660€<br>             Mayores 75+: 648<br>             Perfil: Zona envejecida — solvencia ajustada             </div>`)[0];
+                popup_c937b64b45a223464c104dd5a6350d24.setContent(html_19bb7a06224225b5e92785aef4635b3d);
+            
+        
+
+        circle_marker_1a394b0c3c5d421d83811a08ad305391.bindPopup(popup_c937b64b45a223464c104dd5a6350d24)
+        ;
+
+        
+    
+    
+            circle_marker_1a394b0c3c5d421d83811a08ad305391.bindTooltip(
+                `<div>
+                     Pola de Gordón, La
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_087a98b0ffd6e076f5dc497521065f1f = L.circleMarker(
+                [43.523325666666665, -6.763496666666666],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_73fd92e9b5052a918a120bd2ea8a9cae = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a0dab1b6dbfdaf314e4d961204758c3d = $(`<div id="html_a0dab1b6dbfdaf314e4d961204758c3d" style="width: 100.0%; height: 100.0%;">             <b>Coaña</b><br>             Posición: #41<br>             F-of-M: 0.169<br>             Renta hogar: 30,989€<br>             Mayores 75+: 502<br>             Perfil: Zona envejecida — solvencia ajustada             </div>`)[0];
+                popup_73fd92e9b5052a918a120bd2ea8a9cae.setContent(html_a0dab1b6dbfdaf314e4d961204758c3d);
+            
+        
+
+        circle_marker_087a98b0ffd6e076f5dc497521065f1f.bindPopup(popup_73fd92e9b5052a918a120bd2ea8a9cae)
+        ;
+
+        
+    
+    
+            circle_marker_087a98b0ffd6e076f5dc497521065f1f.bindTooltip(
+                `<div>
+                     Coaña
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0ed1217365e25fd73b98783d873d2a32 = L.circleMarker(
+                [42.34708788741722, -3.6864969271523176],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_89c27e54909fa7caa799e0b0f74711e1 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d2baf2f808c7cbcedf025f76db776eef = $(`<div id="html_d2baf2f808c7cbcedf025f76db776eef" style="width: 100.0%; height: 100.0%;">             <b>Burgos</b><br>             Posición: #42<br>             F-of-M: 0.169<br>             Renta hogar: 31,694€<br>             Mayores 75+: 20,201<br>             Perfil: Gran ciudad — mercado masivo             </div>`)[0];
+                popup_89c27e54909fa7caa799e0b0f74711e1.setContent(html_d2baf2f808c7cbcedf025f76db776eef);
+            
+        
+
+        circle_marker_0ed1217365e25fd73b98783d873d2a32.bindPopup(popup_89c27e54909fa7caa799e0b0f74711e1)
+        ;
+
+        
+    
+    
+            circle_marker_0ed1217365e25fd73b98783d873d2a32.bindTooltip(
+                `<div>
+                     Burgos
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8581eeb7616b7b139b25060b3074330a = L.circleMarker(
+                [42.59863937735849, -5.572936198113207],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_7c25ca0c300c9932dde7d8e05467eb76 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_47fb78b41de786d3ffb9137a90450d67 = $(`<div id="html_47fb78b41de786d3ffb9137a90450d67" style="width: 100.0%; height: 100.0%;">             <b>León</b><br>             Posición: #43<br>             F-of-M: 0.169<br>             Renta hogar: 29,866€<br>             Mayores 75+: 18,018<br>             Perfil: Gran ciudad — mercado masivo             </div>`)[0];
+                popup_7c25ca0c300c9932dde7d8e05467eb76.setContent(html_47fb78b41de786d3ffb9137a90450d67);
+            
+        
+
+        circle_marker_8581eeb7616b7b139b25060b3074330a.bindPopup(popup_7c25ca0c300c9932dde7d8e05467eb76)
+        ;
+
+        
+    
+    
+            circle_marker_8581eeb7616b7b139b25060b3074330a.bindTooltip(
+                `<div>
+                     León
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d6a9b18c9a106ee2f8bd56ec0827c192 = L.circleMarker(
+                [43.36410389385475, -5.850900145251397],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_bcf1dc66072e5903af9b401def2fe0ae = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_17a3c2a8627d1addeb9108dfa94752f2 = $(`<div id="html_17a3c2a8627d1addeb9108dfa94752f2" style="width: 100.0%; height: 100.0%;">             <b>Oviedo</b><br>             Posición: #44<br>             F-of-M: 0.168<br>             Renta hogar: 31,373€<br>             Mayores 75+: 25,130<br>             Perfil: Gran ciudad — mercado masivo             </div>`)[0];
+                popup_bcf1dc66072e5903af9b401def2fe0ae.setContent(html_17a3c2a8627d1addeb9108dfa94752f2);
+            
+        
+
+        circle_marker_d6a9b18c9a106ee2f8bd56ec0827c192.bindPopup(popup_bcf1dc66072e5903af9b401def2fe0ae)
+        ;
+
+        
+    
+    
+            circle_marker_d6a9b18c9a106ee2f8bd56ec0827c192.bindTooltip(
+                `<div>
+                     Oviedo
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cae3df0603b35fd2e4ee7e265c86019f = L.circleMarker(
+                [41.645205325581394, -4.729743112403101],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_3e8b944395a5d2c84793fdc6f29d8210 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_617f51a417d0b4c41007f3f8a51042e9 = $(`<div id="html_617f51a417d0b4c41007f3f8a51042e9" style="width: 100.0%; height: 100.0%;">             <b>Valladolid</b><br>             Posición: #45<br>             F-of-M: 0.168<br>             Renta hogar: 30,946€<br>             Mayores 75+: 40,474<br>             Perfil: Gran ciudad — mercado masivo             </div>`)[0];
+                popup_3e8b944395a5d2c84793fdc6f29d8210.setContent(html_617f51a417d0b4c41007f3f8a51042e9);
+            
+        
+
+        circle_marker_cae3df0603b35fd2e4ee7e265c86019f.bindPopup(popup_3e8b944395a5d2c84793fdc6f29d8210)
+        ;
+
+        
+    
+    
+            circle_marker_cae3df0603b35fd2e4ee7e265c86019f.bindTooltip(
+                `<div>
+                     Valladolid
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_752159c17e100b46145c8ff2e011cf5d = L.circleMarker(
+                [41.65079016293279, -0.8910179266802444],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_008a09503b90d2504be00f6073c7484d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_cc7daa748db82408b7d99a524c6a76ea = $(`<div id="html_cc7daa748db82408b7d99a524c6a76ea" style="width: 100.0%; height: 100.0%;">             <b>Zaragoza</b><br>             Posición: #46<br>             F-of-M: 0.167<br>             Renta hogar: 31,789€<br>             Mayores 75+: 74,241<br>             Perfil: Gran ciudad — mercado masivo             </div>`)[0];
+                popup_008a09503b90d2504be00f6073c7484d.setContent(html_cc7daa748db82408b7d99a524c6a76ea);
+            
+        
+
+        circle_marker_752159c17e100b46145c8ff2e011cf5d.bindPopup(popup_008a09503b90d2504be00f6073c7484d)
+        ;
+
+        
+    
+    
+            circle_marker_752159c17e100b46145c8ff2e011cf5d.bindTooltip(
+                `<div>
+                     Zaragoza
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8cfd0d0435ee88a02b531c56216d9286 = L.circleMarker(
+                [43.68119733333333, -7.513174666666667],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_9a86164cdc8d31bfcee00459db1665ee = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_925726d924867a1d7424d749bb745d88 = $(`<div id="html_925726d924867a1d7424d749bb745d88" style="width: 100.0%; height: 100.0%;">             <b>Xove</b><br>             Posición: #47<br>             F-of-M: 0.167<br>             Renta hogar: 29,349€<br>             Mayores 75+: 551<br>             Perfil: Zona envejecida — solvencia ajustada             </div>`)[0];
+                popup_9a86164cdc8d31bfcee00459db1665ee.setContent(html_925726d924867a1d7424d749bb745d88);
+            
+        
+
+        circle_marker_8cfd0d0435ee88a02b531c56216d9286.bindPopup(popup_9a86164cdc8d31bfcee00459db1665ee)
+        ;
+
+        
+    
+    
+            circle_marker_8cfd0d0435ee88a02b531c56216d9286.bindTooltip(
+                `<div>
+                     Xove
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4ec63061a37f54d66f94b28618b7f06f = L.circleMarker(
+                [40.04939972727273, 0.0538656363636363],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_432de0ecc77dd6d7b3be4099be029d00 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8e9b97c69852c287b42d343e6ac0ab81 = $(`<div id="html_8e9b97c69852c287b42d343e6ac0ab81" style="width: 100.0%; height: 100.0%;">             <b>Benicasim/Benicàssim</b><br>             Posición: #48<br>             F-of-M: 0.167<br>             Renta hogar: 34,846€<br>             Mayores 75+: 1,554<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_432de0ecc77dd6d7b3be4099be029d00.setContent(html_8e9b97c69852c287b42d343e6ac0ab81);
+            
+        
+
+        circle_marker_4ec63061a37f54d66f94b28618b7f06f.bindPopup(popup_432de0ecc77dd6d7b3be4099be029d00)
+        ;
+
+        
+    
+    
+            circle_marker_4ec63061a37f54d66f94b28618b7f06f.bindTooltip(
+                `<div>
+                     Benicasim/Benicàssim
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f05b47263f8a258c91bf78ec64c61101 = L.circleMarker(
+                [42.11872383333333, 2.7674805],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_1bfcb61cc6f0c6d1ad923af7c30ff0ef = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6022ef93efb1279bc818b0aa4763726c = $(`<div id="html_6022ef93efb1279bc818b0aa4763726c" style="width: 100.0%; height: 100.0%;">             <b>Banyoles</b><br>             Posición: #49<br>             F-of-M: 0.166<br>             Renta hogar: 33,081€<br>             Mayores 75+: 1,745<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_1bfcb61cc6f0c6d1ad923af7c30ff0ef.setContent(html_6022ef93efb1279bc818b0aa4763726c);
+            
+        
+
+        circle_marker_f05b47263f8a258c91bf78ec64c61101.bindPopup(popup_1bfcb61cc6f0c6d1ad923af7c30ff0ef)
+        ;
+
+        
+    
+    
+            circle_marker_f05b47263f8a258c91bf78ec64c61101.bindTooltip(
+                `<div>
+                     Banyoles
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8cf0547769a53d3beae94d669e88334c = L.circleMarker(
+                [40.9840545, -0.4442198333333333],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_918067df892f20c3def0c6c86fffae4f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f10ac25e870be77344061bb521da3299 = $(`<div id="html_f10ac25e870be77344061bb521da3299" style="width: 100.0%; height: 100.0%;">             <b>Andorra</b><br>             Posición: #50<br>             F-of-M: 0.166<br>             Renta hogar: 33,599€<br>             Mayores 75+: 757<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_918067df892f20c3def0c6c86fffae4f.setContent(html_f10ac25e870be77344061bb521da3299);
+            
+        
+
+        circle_marker_8cf0547769a53d3beae94d669e88334c.bindPopup(popup_918067df892f20c3def0c6c86fffae4f)
+        ;
+
+        
+    
+    
+            circle_marker_8cf0547769a53d3beae94d669e88334c.bindTooltip(
+                `<div>
+                     Andorra
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_16f480c9f39b675d70bc197614dfe1da = L.circleMarker(
+                [35.28889113636364, -2.946369295454545],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_bc7949f9f1f4cd9d7630a3447d1d0490 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_893fdca4a0a39389b90871d0c553e758 = $(`<div id="html_893fdca4a0a39389b90871d0c553e758" style="width: 100.0%; height: 100.0%;">             <b>Melilla</b><br>             Posición: #51<br>             F-of-M: 0.166<br>             Renta hogar: 35,748€<br>             Mayores 75+: 4,000<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_bc7949f9f1f4cd9d7630a3447d1d0490.setContent(html_893fdca4a0a39389b90871d0c553e758);
+            
+        
+
+        circle_marker_16f480c9f39b675d70bc197614dfe1da.bindPopup(popup_bc7949f9f1f4cd9d7630a3447d1d0490)
+        ;
+
+        
+    
+    
+            circle_marker_16f480c9f39b675d70bc197614dfe1da.bindTooltip(
+                `<div>
+                     Melilla
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c649867c90b40e047d893c315447d7f3 = L.circleMarker(
+                [41.12295307142857, 1.23942725],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_4684f7e822f2a6383ac00e8c569e2ed2 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7b55cc401c0490b0674a00ae528b5da5 = $(`<div id="html_7b55cc401c0490b0674a00ae528b5da5" style="width: 100.0%; height: 100.0%;">             <b>Tarragona</b><br>             Posición: #52<br>             F-of-M: 0.165<br>             Renta hogar: 33,043€<br>             Mayores 75+: 12,221<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_4684f7e822f2a6383ac00e8c569e2ed2.setContent(html_7b55cc401c0490b0674a00ae528b5da5);
+            
+        
+
+        circle_marker_c649867c90b40e047d893c315447d7f3.bindPopup(popup_4684f7e822f2a6383ac00e8c569e2ed2)
+        ;
+
+        
+    
+    
+            circle_marker_c649867c90b40e047d893c315447d7f3.bindTooltip(
+                `<div>
+                     Tarragona
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f10afdc88cc489a9069a63a1a5db257a = L.circleMarker(
+                [41.8818686, 2.8794926],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_11b2935b2fbfd56ab93975c2a916b750 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_251573c6c04c4b2854cf7847de8bffb5 = $(`<div id="html_251573c6c04c4b2854cf7847de8bffb5" style="width: 100.0%; height: 100.0%;">             <b>Cassà de la Selva</b><br>             Posición: #53<br>             F-of-M: 0.165<br>             Renta hogar: 32,862€<br>             Mayores 75+: 880<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_11b2935b2fbfd56ab93975c2a916b750.setContent(html_251573c6c04c4b2854cf7847de8bffb5);
+            
+        
+
+        circle_marker_f10afdc88cc489a9069a63a1a5db257a.bindPopup(popup_11b2935b2fbfd56ab93975c2a916b750)
+        ;
+
+        
+    
+    
+            circle_marker_f10afdc88cc489a9069a63a1a5db257a.bindTooltip(
+                `<div>
+                     Cassà de la Selva
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_258d7af192055ff319e308c860a8f397 = L.circleMarker(
+                [41.765656, -2.47241528],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_db29041659663c8e25ba99aaba2c85ca = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_17d0526fa3972a0562d0ba966799ff9e = $(`<div id="html_17d0526fa3972a0562d0ba966799ff9e" style="width: 100.0%; height: 100.0%;">             <b>Soria</b><br>             Posición: #54<br>             F-of-M: 0.165<br>             Renta hogar: 30,847€<br>             Mayores 75+: 4,573<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_db29041659663c8e25ba99aaba2c85ca.setContent(html_17d0526fa3972a0562d0ba966799ff9e);
+            
+        
+
+        circle_marker_258d7af192055ff319e308c860a8f397.bindPopup(popup_db29041659663c8e25ba99aaba2c85ca)
+        ;
+
+        
+    
+    
+            circle_marker_258d7af192055ff319e308c860a8f397.bindTooltip(
+                `<div>
+                     Soria
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a421107228c9523ae4fa3c2721980b8e = L.circleMarker(
+                [35.8874225, -5.324933214285714],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_872a47a9ee7c744b2ef3f4878a924f23 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b3df348c25fa57a5398a20d97d0511a9 = $(`<div id="html_b3df348c25fa57a5398a20d97d0511a9" style="width: 100.0%; height: 100.0%;">             <b>Ceuta</b><br>             Posición: #55<br>             F-of-M: 0.164<br>             Renta hogar: 35,381€<br>             Mayores 75+: 4,534<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_872a47a9ee7c744b2ef3f4878a924f23.setContent(html_b3df348c25fa57a5398a20d97d0511a9);
+            
+        
+
+        circle_marker_a421107228c9523ae4fa3c2721980b8e.bindPopup(popup_872a47a9ee7c744b2ef3f4878a924f23)
+        ;
+
+        
+    
+    
+            circle_marker_a421107228c9523ae4fa3c2721980b8e.bindTooltip(
+                `<div>
+                     Ceuta
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_58a4fde4f16eb4ef7220b1434d2c2c03 = L.circleMarker(
+                [42.2236651352459, -8.72120481147541],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_d7178e262261479c3389411f6033b2df = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4fb6291a13425446931b2a4c4d2b2307 = $(`<div id="html_4fb6291a13425446931b2a4c4d2b2307" style="width: 100.0%; height: 100.0%;">             <b>Vigo</b><br>             Posición: #56<br>             F-of-M: 0.164<br>             Renta hogar: 31,139€<br>             Mayores 75+: 34,198<br>             Perfil: Gran ciudad — mercado masivo             </div>`)[0];
+                popup_d7178e262261479c3389411f6033b2df.setContent(html_4fb6291a13425446931b2a4c4d2b2307);
+            
+        
+
+        circle_marker_58a4fde4f16eb4ef7220b1434d2c2c03.bindPopup(popup_d7178e262261479c3389411f6033b2df)
+        ;
+
+        
+    
+    
+            circle_marker_58a4fde4f16eb4ef7220b1434d2c2c03.bindTooltip(
+                `<div>
+                     Vigo
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_96fb94910ee1d477b6aeda2926ba3229 = L.circleMarker(
+                [40.338994, -1.1035280454545455],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_39cd8672310b0a751a16da041062e0e1 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b0a78556bed766007dc9df71026400da = $(`<div id="html_b0a78556bed766007dc9df71026400da" style="width: 100.0%; height: 100.0%;">             <b>Teruel</b><br>             Posición: #57<br>             F-of-M: 0.164<br>             Renta hogar: 32,018€<br>             Mayores 75+: 3,750<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_39cd8672310b0a751a16da041062e0e1.setContent(html_b0a78556bed766007dc9df71026400da);
+            
+        
+
+        circle_marker_96fb94910ee1d477b6aeda2926ba3229.bindPopup(popup_39cd8672310b0a751a16da041062e0e1)
+        ;
+
+        
+    
+    
+            circle_marker_96fb94910ee1d477b6aeda2926ba3229.bindTooltip(
+                `<div>
+                     Teruel
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a9f9bd2daade6f977c7448428eddbc70 = L.circleMarker(
+                [42.46207228440367, -2.4484606513761467],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_b75b9568939c16f7d8af92542399bce6 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_5928f6bb7556b437804e011e4ffa50b1 = $(`<div id="html_5928f6bb7556b437804e011e4ffa50b1" style="width: 100.0%; height: 100.0%;">             <b>Logroño</b><br>             Posición: #58<br>             F-of-M: 0.163<br>             Renta hogar: 30,773€<br>             Mayores 75+: 15,986<br>             Perfil: Gran ciudad — mercado masivo             </div>`)[0];
+                popup_b75b9568939c16f7d8af92542399bce6.setContent(html_5928f6bb7556b437804e011e4ffa50b1);
+            
+        
+
+        circle_marker_a9f9bd2daade6f977c7448428eddbc70.bindPopup(popup_b75b9568939c16f7d8af92542399bce6)
+        ;
+
+        
+    
+    
+            circle_marker_a9f9bd2daade6f977c7448428eddbc70.bindTooltip(
+                `<div>
+                     Logroño
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3010ca5e933868820f55a5826dd70789 = L.circleMarker(
+                [40.94202058139535, -4.114898581395349],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_80616632817c186c7abc89e0795e31c3 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1ed5e2bb31d538958d9d4ad66feacc66 = $(`<div id="html_1ed5e2bb31d538958d9d4ad66feacc66" style="width: 100.0%; height: 100.0%;">             <b>Segovia</b><br>             Posición: #59<br>             F-of-M: 0.163<br>             Renta hogar: 30,203€<br>             Mayores 75+: 6,418<br>             Perfil: Zona envejecida — solvencia ajustada             </div>`)[0];
+                popup_80616632817c186c7abc89e0795e31c3.setContent(html_1ed5e2bb31d538958d9d4ad66feacc66);
+            
+        
+
+        circle_marker_3010ca5e933868820f55a5826dd70789.bindPopup(popup_80616632817c186c7abc89e0795e31c3)
+        ;
+
+        
+    
+    
+            circle_marker_3010ca5e933868820f55a5826dd70789.bindTooltip(
+                `<div>
+                     Segovia
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_741a29a23d418a6e1e0e34a4152b3922 = L.circleMarker(
+                [37.38197233333333, -6.1235713333333335],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_8cb53791eaa759de41bf655cee60d38d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_72516c9984ea9b0f4bac4f5529d0a6d4 = $(`<div id="html_72516c9984ea9b0f4bac4f5529d0a6d4" style="width: 100.0%; height: 100.0%;">             <b>Espartinas</b><br>             Posición: #60<br>             F-of-M: 0.162<br>             Renta hogar: 35,858€<br>             Mayores 75+: 676<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_8cb53791eaa759de41bf655cee60d38d.setContent(html_72516c9984ea9b0f4bac4f5529d0a6d4);
+            
+        
+
+        circle_marker_741a29a23d418a6e1e0e34a4152b3922.bindPopup(popup_8cb53791eaa759de41bf655cee60d38d)
+        ;
+
+        
+    
+    
+            circle_marker_741a29a23d418a6e1e0e34a4152b3922.bindTooltip(
+                `<div>
+                     Espartinas
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_db1fd156b9cdf97eba2dd913187fe526 = L.circleMarker(
+                [42.93323775, -7.4350875],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_a352f17c97af49880bec9fd82a017c18 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0254788549a078a44e651aadcc58cb6e = $(`<div id="html_0254788549a078a44e651aadcc58cb6e" style="width: 100.0%; height: 100.0%;">             <b>Corgo, O</b><br>             Posición: #61<br>             F-of-M: 0.162<br>             Renta hogar: 26,012€<br>             Mayores 75+: 750<br>             Perfil: Zona envejecida — solvencia ajustada             </div>`)[0];
+                popup_a352f17c97af49880bec9fd82a017c18.setContent(html_0254788549a078a44e651aadcc58cb6e);
+            
+        
+
+        circle_marker_db1fd156b9cdf97eba2dd913187fe526.bindPopup(popup_a352f17c97af49880bec9fd82a017c18)
+        ;
+
+        
+    
+    
+            circle_marker_db1fd156b9cdf97eba2dd913187fe526.bindTooltip(
+                `<div>
+                     Corgo, O
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e7463a5f59a82636007202980dfbaca6 = L.circleMarker(
+                [42.434514, -5.9034245],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_e0681a8beb636ecb9f9d7f0471c80588 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_01e6d91b0f96b2d1f5b40fc1bd0607c8 = $(`<div id="html_01e6d91b0f96b2d1f5b40fc1bd0607c8" style="width: 100.0%; height: 100.0%;">             <b>Villarejo de Órbigo</b><br>             Posición: #62<br>             F-of-M: 0.162<br>             Renta hogar: 25,439€<br>             Mayores 75+: 538<br>             Perfil: Zona envejecida — solvencia ajustada             </div>`)[0];
+                popup_e0681a8beb636ecb9f9d7f0471c80588.setContent(html_01e6d91b0f96b2d1f5b40fc1bd0607c8);
+            
+        
+
+        circle_marker_e7463a5f59a82636007202980dfbaca6.bindPopup(popup_e0681a8beb636ecb9f9d7f0471c80588)
+        ;
+
+        
+    
+    
+            circle_marker_e7463a5f59a82636007202980dfbaca6.bindTooltip(
+                `<div>
+                     Villarejo de Órbigo
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_21da3774ab32fa07bf53e42e3ca19296 = L.circleMarker(
+                [41.85028625, 0.2938345],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_662d4fa7de15cd0ffd136ed3c38fc2a3 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a1e6e046c60dc2c6cf9554f1868297bb = $(`<div id="html_a1e6e046c60dc2c6cf9554f1868297bb" style="width: 100.0%; height: 100.0%;">             <b>Binéfar</b><br>             Posición: #63<br>             F-of-M: 0.161<br>             Renta hogar: 29,985€<br>             Mayores 75+: 1,061<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_662d4fa7de15cd0ffd136ed3c38fc2a3.setContent(html_a1e6e046c60dc2c6cf9554f1868297bb);
+            
+        
+
+        circle_marker_21da3774ab32fa07bf53e42e3ca19296.bindPopup(popup_662d4fa7de15cd0ffd136ed3c38fc2a3)
+        ;
+
+        
+    
+    
+            circle_marker_21da3774ab32fa07bf53e42e3ca19296.bindTooltip(
+                `<div>
+                     Binéfar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_34bd06e55972492a4fe0450a6b8e719b = L.circleMarker(
+                [42.00879193442624, -4.529554901639344],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_e391c827931811a0a0850e9aa642194f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_18e6d727885207ec918d7d75b5545d87 = $(`<div id="html_18e6d727885207ec918d7d75b5545d87" style="width: 100.0%; height: 100.0%;">             <b>Palencia</b><br>             Posición: #64<br>             F-of-M: 0.160<br>             Renta hogar: 29,202€<br>             Mayores 75+: 9,477<br>             Perfil: Zona envejecida — solvencia ajustada             </div>`)[0];
+                popup_e391c827931811a0a0850e9aa642194f.setContent(html_18e6d727885207ec918d7d75b5545d87);
+            
+        
+
+        circle_marker_34bd06e55972492a4fe0450a6b8e719b.bindPopup(popup_e391c827931811a0a0850e9aa642194f)
+        ;
+
+        
+    
+    
+            circle_marker_34bd06e55972492a4fe0450a6b8e719b.bindTooltip(
+                `<div>
+                     Palencia
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6c61d0500434e9297a55385a4bfb9120 = L.circleMarker(
+                [38.98518246296297, -3.9295852592592593],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_cc1e9afd7d989cbb9d947acd7cdec5ba = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_21b02ed1c69140adaf2111a7a0125d83 = $(`<div id="html_21b02ed1c69140adaf2111a7a0125d83" style="width: 100.0%; height: 100.0%;">             <b>Ciudad Real</b><br>             Posición: #65<br>             F-of-M: 0.160<br>             Renta hogar: 31,336€<br>             Mayores 75+: 6,506<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_cc1e9afd7d989cbb9d947acd7cdec5ba.setContent(html_21b02ed1c69140adaf2111a7a0125d83);
+            
+        
+
+        circle_marker_6c61d0500434e9297a55385a4bfb9120.bindPopup(popup_cc1e9afd7d989cbb9d947acd7cdec5ba)
+        ;
+
+        
+    
+    
+            circle_marker_6c61d0500434e9297a55385a4bfb9120.bindTooltip(
+                `<div>
+                     Ciudad Real
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_86b614f652afaf6fb1503935962880e5 = L.circleMarker(
+                [36.518417373831774, -6.283676700934579],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_fe78f3451225c6dee8cb434515991f41 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1afb3a54aec0271c70473b446341c7a0 = $(`<div id="html_1afb3a54aec0271c70473b446341c7a0" style="width: 100.0%; height: 100.0%;">             <b>Cádiz</b><br>             Posición: #66<br>             F-of-M: 0.159<br>             Renta hogar: 29,745€<br>             Mayores 75+: 13,535<br>             Perfil: Gran ciudad — mercado masivo             </div>`)[0];
+                popup_fe78f3451225c6dee8cb434515991f41.setContent(html_1afb3a54aec0271c70473b446341c7a0);
+            
+        
+
+        circle_marker_86b614f652afaf6fb1503935962880e5.bindPopup(popup_fe78f3451225c6dee8cb434515991f41)
+        ;
+
+        
+    
+    
+            circle_marker_86b614f652afaf6fb1503935962880e5.bindTooltip(
+                `<div>
+                     Cádiz
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_67fd5d9aab88c0e0b934c7f79751dbd6 = L.circleMarker(
+                [40.96817241322314, -5.662168280991735],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_b5c1fec03357f2f32916751e5c8428d3 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_757c4d70455d16cc5c74edcca1495429 = $(`<div id="html_757c4d70455d16cc5c74edcca1495429" style="width: 100.0%; height: 100.0%;">             <b>Salamanca</b><br>             Posición: #67<br>             F-of-M: 0.159<br>             Renta hogar: 27,355€<br>             Mayores 75+: 21,939<br>             Perfil: Gran ciudad — mercado masivo             </div>`)[0];
+                popup_b5c1fec03357f2f32916751e5c8428d3.setContent(html_757c4d70455d16cc5c74edcca1495429);
+            
+        
+
+        circle_marker_67fd5d9aab88c0e0b934c7f79751dbd6.bindPopup(popup_b5c1fec03357f2f32916751e5c8428d3)
+        ;
+
+        
+    
+    
+            circle_marker_67fd5d9aab88c0e0b934c7f79751dbd6.bindTooltip(
+                `<div>
+                     Salamanca
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_08aff4b8d135df93045d7e6c59efebaa = L.circleMarker(
+                [42.13539458823529, -0.4112995],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_f7488929b89a1dac163fe87979f4962d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1de3ddd52359cade8cf77fc0bdada0e7 = $(`<div id="html_1de3ddd52359cade8cf77fc0bdada0e7" style="width: 100.0%; height: 100.0%;">             <b>Huesca</b><br>             Posición: #68<br>             F-of-M: 0.159<br>             Renta hogar: 30,522€<br>             Mayores 75+: 5,534<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_f7488929b89a1dac163fe87979f4962d.setContent(html_1de3ddd52359cade8cf77fc0bdada0e7);
+            
+        
+
+        circle_marker_08aff4b8d135df93045d7e6c59efebaa.bindPopup(popup_f7488929b89a1dac163fe87979f4962d)
+        ;
+
+        
+    
+    
+            circle_marker_08aff4b8d135df93045d7e6c59efebaa.bindTooltip(
+                `<div>
+                     Huesca
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_be85dc6d48819e02347a497ed51490f0 = L.circleMarker(
+                [40.63412003389831, -3.1662294915254234],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_5d3433cab23b2ada68574d221cbbb757 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ded2e4fd79fdce1cb0970a34bdaac28b = $(`<div id="html_ded2e4fd79fdce1cb0970a34bdaac28b" style="width: 100.0%; height: 100.0%;">             <b>Guadalajara</b><br>             Posición: #69<br>             F-of-M: 0.159<br>             Renta hogar: 31,669€<br>             Mayores 75+: 7,625<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_5d3433cab23b2ada68574d221cbbb757.setContent(html_ded2e4fd79fdce1cb0970a34bdaac28b);
+            
+        
+
+        circle_marker_be85dc6d48819e02347a497ed51490f0.bindPopup(popup_5d3433cab23b2ada68574d221cbbb757)
+        ;
+
+        
+    
+    
+            circle_marker_be85dc6d48819e02347a497ed51490f0.bindTooltip(
+                `<div>
+                     Guadalajara
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_67832b4b58ed31c29644fc200c16a6e2 = L.circleMarker(
+                [28.424923, -16.343904923076924],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_1ffd23717e1409174ba40c90235ee16a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e5de3fecc2d88a8715fe58a70c78fa8f = $(`<div id="html_e5de3fecc2d88a8715fe58a70c78fa8f" style="width: 100.0%; height: 100.0%;">             <b>Rosario, El</b><br>             Posición: #70<br>             F-of-M: 0.158<br>             Renta hogar: 34,812€<br>             Mayores 75+: 1,075<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_1ffd23717e1409174ba40c90235ee16a.setContent(html_e5de3fecc2d88a8715fe58a70c78fa8f);
+            
+        
+
+        circle_marker_67832b4b58ed31c29644fc200c16a6e2.bindPopup(popup_1ffd23717e1409174ba40c90235ee16a)
+        ;
+
+        
+    
+    
+            circle_marker_67832b4b58ed31c29644fc200c16a6e2.bindTooltip(
+                `<div>
+                     Rosario, El
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_396c0746d6d5b2b0fc96bf891d979310 = L.circleMarker(
+                [37.387375000000006, -6.076937571428571],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_7209e8a93bf6ff668fa0d9fb2e823e19 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1d5b679f503106481c4c70bc48aa27c4 = $(`<div id="html_1d5b679f503106481c4c70bc48aa27c4" style="width: 100.0%; height: 100.0%;">             <b>Gines</b><br>             Posición: #71<br>             F-of-M: 0.158<br>             Renta hogar: 34,049€<br>             Mayores 75+: 743<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_7209e8a93bf6ff668fa0d9fb2e823e19.setContent(html_1d5b679f503106481c4c70bc48aa27c4);
+            
+        
+
+        circle_marker_396c0746d6d5b2b0fc96bf891d979310.bindPopup(popup_7209e8a93bf6ff668fa0d9fb2e823e19)
+        ;
+
+        
+    
+    
+            circle_marker_396c0746d6d5b2b0fc96bf891d979310.bindTooltip(
+                `<div>
+                     Gines
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c08a050e528c21eda1c829591bb6c0e1 = L.circleMarker(
+                [28.51924957142857, -16.341981999999998],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_cb59a5d6939e1a82c34ea85a205795c1 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_219e0efe1596fcc6553f3c883a22924b = $(`<div id="html_219e0efe1596fcc6553f3c883a22924b" style="width: 100.0%; height: 100.0%;">             <b>Tegueste</b><br>             Posición: #72<br>             F-of-M: 0.157<br>             Renta hogar: 32,342€<br>             Mayores 75+: 932<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_cb59a5d6939e1a82c34ea85a205795c1.setContent(html_219e0efe1596fcc6553f3c883a22924b);
+            
+        
+
+        circle_marker_c08a050e528c21eda1c829591bb6c0e1.bindPopup(popup_cb59a5d6939e1a82c34ea85a205795c1)
+        ;
+
+        
+    
+    
+            circle_marker_c08a050e528c21eda1c829591bb6c0e1.bindTooltip(
+                `<div>
+                     Tegueste
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8fe24de241e4ce6fba4d411cd93001ae = L.circleMarker(
+                [42.340158625, -7.86655895],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_66885764070bc8c1c227d38672de3a87 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f02fe0315c5618f570ee2420722e0fbc = $(`<div id="html_f02fe0315c5618f570ee2420722e0fbc" style="width: 100.0%; height: 100.0%;">             <b>Ourense</b><br>             Posición: #73<br>             F-of-M: 0.156<br>             Renta hogar: 27,700€<br>             Mayores 75+: 15,094<br>             Perfil: Zona envejecida — solvencia ajustada             </div>`)[0];
+                popup_66885764070bc8c1c227d38672de3a87.setContent(html_f02fe0315c5618f570ee2420722e0fbc);
+            
+        
+
+        circle_marker_8fe24de241e4ce6fba4d411cd93001ae.bindPopup(popup_66885764070bc8c1c227d38672de3a87)
+        ;
+
+        
+    
+    
+            circle_marker_8fe24de241e4ce6fba4d411cd93001ae.bindTooltip(
+                `<div>
+                     Ourense
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7bd8abe84b89bf04a4ac3142da590ae6 = L.circleMarker(
+                [41.61824327160494, 0.622052913580247],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_771eb77a0ef3a82c18052e839e074d4f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_44b899b69edc97d9f54642a46df38319 = $(`<div id="html_44b899b69edc97d9f54642a46df38319" style="width: 100.0%; height: 100.0%;">             <b>Lleida</b><br>             Posición: #74<br>             F-of-M: 0.156<br>             Renta hogar: 30,348€<br>             Mayores 75+: 12,595<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_771eb77a0ef3a82c18052e839e074d4f.setContent(html_44b899b69edc97d9f54642a46df38319);
+            
+        
+
+        circle_marker_7bd8abe84b89bf04a4ac3142da590ae6.bindPopup(popup_771eb77a0ef3a82c18052e839e074d4f)
+        ;
+
+        
+    
+    
+            circle_marker_7bd8abe84b89bf04a4ac3142da590ae6.bindTooltip(
+                `<div>
+                     Lleida
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b9e634f601934123c3ab885c27fd9a20 = L.circleMarker(
+                [42.79290816666667, -4.269418166666667],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_33f776c561e909ecff42aea7ce635e07 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f8f2082e79df23cbd140ce7f0945d289 = $(`<div id="html_f8f2082e79df23cbd140ce7f0945d289" style="width: 100.0%; height: 100.0%;">             <b>Aguilar de Campoo</b><br>             Posición: #75<br>             F-of-M: 0.155<br>             Renta hogar: 28,660€<br>             Mayores 75+: 827<br>             Perfil: Zona envejecida — solvencia ajustada             </div>`)[0];
+                popup_33f776c561e909ecff42aea7ce635e07.setContent(html_f8f2082e79df23cbd140ce7f0945d289);
+            
+        
+
+        circle_marker_b9e634f601934123c3ab885c27fd9a20.bindPopup(popup_33f776c561e909ecff42aea7ce635e07)
+        ;
+
+        
+    
+    
+            circle_marker_b9e634f601934123c3ab885c27fd9a20.bindTooltip(
+                `<div>
+                     Aguilar de Campoo
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e6eff003caec9094f95822f6d25eaa7e = L.circleMarker(
+                [42.1947677, -8.631148],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_78444ad06f178850041c7637160e296a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b6a37c80cbd37b41a3ba3fab095b45d0 = $(`<div id="html_b6a37c80cbd37b41a3ba3fab095b45d0" style="width: 100.0%; height: 100.0%;">             <b>Mos</b><br>             Posición: #76<br>             F-of-M: 0.155<br>             Renta hogar: 29,865€<br>             Mayores 75+: 1,492<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_78444ad06f178850041c7637160e296a.setContent(html_b6a37c80cbd37b41a3ba3fab095b45d0);
+            
+        
+
+        circle_marker_e6eff003caec9094f95822f6d25eaa7e.bindPopup(popup_78444ad06f178850041c7637160e296a)
+        ;
+
+        
+    
+    
+            circle_marker_e6eff003caec9094f95822f6d25eaa7e.bindTooltip(
+                `<div>
+                     Mos
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b74221e90a7a66489321191bdb651995 = L.circleMarker(
+                [42.3426604, -7.7776594],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_fd415d1700be37bb2a65d2fb68731976 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_dd5d28a8a3351923879253aac3bb253a = $(`<div id="html_dd5d28a8a3351923879253aac3bb253a" style="width: 100.0%; height: 100.0%;">             <b>Pereiro de Aguiar, O</b><br>             Posición: #77<br>             F-of-M: 0.155<br>             Renta hogar: 29,147€<br>             Mayores 75+: 847<br>             Perfil: Zona envejecida — solvencia ajustada             </div>`)[0];
+                popup_fd415d1700be37bb2a65d2fb68731976.setContent(html_dd5d28a8a3351923879253aac3bb253a);
+            
+        
+
+        circle_marker_b74221e90a7a66489321191bdb651995.bindPopup(popup_fd415d1700be37bb2a65d2fb68731976)
+        ;
+
+        
+    
+    
+            circle_marker_b74221e90a7a66489321191bdb651995.bindTooltip(
+                `<div>
+                     Pereiro de Aguiar, O
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c0159f51fcaa27d5a545ba8d51b207c4 = L.circleMarker(
+                [42.51848642857143, -0.3519384285714286],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_5046ad7b14a66603a15724bd854bb2cd = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a4cfed07713904f9d190249af34340fa = $(`<div id="html_a4cfed07713904f9d190249af34340fa" style="width: 100.0%; height: 100.0%;">             <b>Sabiñánigo</b><br>             Posición: #78<br>             F-of-M: 0.154<br>             Renta hogar: 29,773€<br>             Mayores 75+: 1,143<br>             Perfil: Zona envejecida — solvencia ajustada             </div>`)[0];
+                popup_5046ad7b14a66603a15724bd854bb2cd.setContent(html_a4cfed07713904f9d190249af34340fa);
+            
+        
+
+        circle_marker_c0159f51fcaa27d5a545ba8d51b207c4.bindPopup(popup_5046ad7b14a66603a15724bd854bb2cd)
+        ;
+
+        
+    
+    
+            circle_marker_c0159f51fcaa27d5a545ba8d51b207c4.bindTooltip(
+                `<div>
+                     Sabiñánigo
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_609c715a30b43643a10de453cbaeeda3 = L.circleMarker(
+                [40.88918675, -4.004666],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_3516535d95dff2fe951048d500ae3b57 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_22fe769f3e50bf87a7bf2ab85a637ea1 = $(`<div id="html_22fe769f3e50bf87a7bf2ab85a637ea1" style="width: 100.0%; height: 100.0%;">             <b>Real Sitio de San Ildefonso</b><br>             Posición: #79<br>             F-of-M: 0.153<br>             Renta hogar: 29,496€<br>             Mayores 75+: 523<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_3516535d95dff2fe951048d500ae3b57.setContent(html_22fe769f3e50bf87a7bf2ab85a637ea1);
+            
+        
+
+        circle_marker_609c715a30b43643a10de453cbaeeda3.bindPopup(popup_3516535d95dff2fe951048d500ae3b57)
+        ;
+
+        
+    
+    
+            circle_marker_609c715a30b43643a10de453cbaeeda3.bindTooltip(
+                `<div>
+                     Real Sitio de San Ildefonso
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7c8fb46f4ddadb0a89c26e9965e39aa4 = L.circleMarker(
+                [37.177455494565216, -3.603301353260869],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_f479c962e5bb2a9c993301f116429780 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3022870fc5a6da1dd03104fda6ace656 = $(`<div id="html_3022870fc5a6da1dd03104fda6ace656" style="width: 100.0%; height: 100.0%;">             <b>Granada</b><br>             Posición: #80<br>             F-of-M: 0.153<br>             Renta hogar: 28,851€<br>             Mayores 75+: 25,182<br>             Perfil: Gran ciudad — mercado masivo             </div>`)[0];
+                popup_f479c962e5bb2a9c993301f116429780.setContent(html_3022870fc5a6da1dd03104fda6ace656);
+            
+        
+
+        circle_marker_7c8fb46f4ddadb0a89c26e9965e39aa4.bindPopup(popup_f479c962e5bb2a9c993301f116429780)
+        ;
+
+        
+    
+    
+            circle_marker_7c8fb46f4ddadb0a89c26e9965e39aa4.bindTooltip(
+                `<div>
+                     Granada
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cf087831f665db391e6ccc255a6cbe1a = L.circleMarker(
+                [40.06599705555556, -2.1275256111111114],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_1a8bd0dca4e540dd6887d6188e61b59d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_5451fc061e0058d206b1c8377e740cd0 = $(`<div id="html_5451fc061e0058d206b1c8377e740cd0" style="width: 100.0%; height: 100.0%;">             <b>Cuenca</b><br>             Posición: #81<br>             F-of-M: 0.151<br>             Renta hogar: 29,122€<br>             Mayores 75+: 5,320<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_1a8bd0dca4e540dd6887d6188e61b59d.setContent(html_5451fc061e0058d206b1c8377e740cd0);
+            
+        
+
+        circle_marker_cf087831f665db391e6ccc255a6cbe1a.bindPopup(popup_1a8bd0dca4e540dd6887d6188e61b59d)
+        ;
+
+        
+    
+    
+            circle_marker_cf087831f665db391e6ccc255a6cbe1a.bindTooltip(
+                `<div>
+                     Cuenca
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0e9727a07f6cafca08b23ee63046b077 = L.circleMarker(
+                [42.68505433333333, -2.946623166666667],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_2e1f64c9cbccb440a5256ee426babd50 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e329bbd2d37b2fd34101db96b48db998 = $(`<div id="html_e329bbd2d37b2fd34101db96b48db998" style="width: 100.0%; height: 100.0%;">             <b>Miranda de Ebro</b><br>             Posición: #82<br>             F-of-M: 0.151<br>             Renta hogar: 28,772€<br>             Mayores 75+: 3,913<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_2e1f64c9cbccb440a5256ee426babd50.setContent(html_e329bbd2d37b2fd34101db96b48db998);
+            
+        
+
+        circle_marker_0e9727a07f6cafca08b23ee63046b077.bindPopup(popup_2e1f64c9cbccb440a5256ee426babd50)
+        ;
+
+        
+    
+    
+            circle_marker_0e9727a07f6cafca08b23ee63046b077.bindTooltip(
+                `<div>
+                     Miranda de Ebro
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_930142c601fb124ad4e9c44985f2654d = L.circleMarker(
+                [37.77661655172414, -3.788168448275862],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_6a19cf29f8bfed82f90977f110af2dd7 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4466a4b9dbe62c7d71dae771cf4c7646 = $(`<div id="html_4466a4b9dbe62c7d71dae771cf4c7646" style="width: 100.0%; height: 100.0%;">             <b>Jaén</b><br>             Posición: #83<br>             F-of-M: 0.151<br>             Renta hogar: 29,411€<br>             Mayores 75+: 10,296<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_6a19cf29f8bfed82f90977f110af2dd7.setContent(html_4466a4b9dbe62c7d71dae771cf4c7646);
+            
+        
+
+        circle_marker_930142c601fb124ad4e9c44985f2654d.bindPopup(popup_6a19cf29f8bfed82f90977f110af2dd7)
+        ;
+
+        
+    
+    
+            circle_marker_930142c601fb124ad4e9c44985f2654d.bindTooltip(
+                `<div>
+                     Jaén
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_40bd09f32b7315ef495f81f5efd5d6ba = L.circleMarker(
+                [28.7920445, -17.789125],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_a276b4e374f6d9955e36b7ebd53bcfea = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_bf60224a441c0788bcbe5de0ae19e1f2 = $(`<div id="html_bf60224a441c0788bcbe5de0ae19e1f2" style="width: 100.0%; height: 100.0%;">             <b>San Andrés y Sauces</b><br>             Posición: #84<br>             F-of-M: 0.150<br>             Renta hogar: 26,741€<br>             Mayores 75+: 653<br>             Perfil: Zona envejecida — solvencia ajustada             </div>`)[0];
+                popup_a276b4e374f6d9955e36b7ebd53bcfea.setContent(html_bf60224a441c0788bcbe5de0ae19e1f2);
+            
+        
+
+        circle_marker_40bd09f32b7315ef495f81f5efd5d6ba.bindPopup(popup_a276b4e374f6d9955e36b7ebd53bcfea)
+        ;
+
+        
+    
+    
+            circle_marker_40bd09f32b7315ef495f81f5efd5d6ba.bindTooltip(
+                `<div>
+                     San Andrés y Sauces
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1c47113c9866cddf4f2cc553dd807a4f = L.circleMarker(
+                [42.4256122, -2.4633796],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_55b452f2d3c5456f112a248c8cef318e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_49de84be52a5d3cbcbd923d9a5385aaa = $(`<div id="html_49de84be52a5d3cbcbd923d9a5385aaa" style="width: 100.0%; height: 100.0%;">             <b>Lardero</b><br>             Posición: #85<br>             F-of-M: 0.150<br>             Renta hogar: 33,011€<br>             Mayores 75+: 616<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_55b452f2d3c5456f112a248c8cef318e.setContent(html_49de84be52a5d3cbcbd923d9a5385aaa);
+            
+        
+
+        circle_marker_1c47113c9866cddf4f2cc553dd807a4f.bindPopup(popup_55b452f2d3c5456f112a248c8cef318e)
+        ;
+
+        
+    
+    
+            circle_marker_1c47113c9866cddf4f2cc553dd807a4f.bindTooltip(
+                `<div>
+                     Lardero
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c54b89279623a25aea65ffb6b30bbd7a = L.circleMarker(
+                [41.59138166666667, -3.061653],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_d4d030b383c6cd3a4278d1ae982eabd1 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3749656ce2058949cbfdbe183a50526f = $(`<div id="html_3749656ce2058949cbfdbe183a50526f" style="width: 100.0%; height: 100.0%;">             <b>Burgo de Osma-Ciudad de Osma</b><br>             Posición: #86<br>             F-of-M: 0.150<br>             Renta hogar: 26,897€<br>             Mayores 75+: 729<br>             Perfil: Zona envejecida — solvencia ajustada             </div>`)[0];
+                popup_d4d030b383c6cd3a4278d1ae982eabd1.setContent(html_3749656ce2058949cbfdbe183a50526f);
+            
+        
+
+        circle_marker_c54b89279623a25aea65ffb6b30bbd7a.bindPopup(popup_d4d030b383c6cd3a4278d1ae982eabd1)
+        ;
+
+        
+    
+    
+            circle_marker_c54b89279623a25aea65ffb6b30bbd7a.bindTooltip(
+                `<div>
+                     Burgo de Osma-Ciudad de Osma
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_46492b198097914d04f3324f29134fb9 = L.circleMarker(
+                [28.107033745454547, -15.438694509090908],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_e5746aba7d0f746321f27891726d5ca5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ea32178ba3ecf65eef1cdddf8aec6b78 = $(`<div id="html_ea32178ba3ecf65eef1cdddf8aec6b78" style="width: 100.0%; height: 100.0%;">             <b>Palmas de Gran Canaria, Las</b><br>             Posición: #87<br>             F-of-M: 0.150<br>             Renta hogar: 30,079€<br>             Mayores 75+: 33,903<br>             Perfil: Gran ciudad — mercado masivo             </div>`)[0];
+                popup_e5746aba7d0f746321f27891726d5ca5.setContent(html_ea32178ba3ecf65eef1cdddf8aec6b78);
+            
+        
+
+        circle_marker_46492b198097914d04f3324f29134fb9.bindPopup(popup_e5746aba7d0f746321f27891726d5ca5)
+        ;
+
+        
+    
+    
+            circle_marker_46492b198097914d04f3324f29134fb9.bindTooltip(
+                `<div>
+                     Palmas de Gran Canaria, Las
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3bfd968043a407d0bfc439969ae3c731 = L.circleMarker(
+                [41.508763897959184, -5.74308869387755],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_ffd8ac116ca8365d705ff1038e5040c3 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_42a286cac98a2a4b76b057fbbf09671c = $(`<div id="html_42a286cac98a2a4b76b057fbbf09671c" style="width: 100.0%; height: 100.0%;">             <b>Zamora</b><br>             Posición: #88<br>             F-of-M: 0.150<br>             Renta hogar: 26,586€<br>             Mayores 75+: 8,344<br>             Perfil: Zona envejecida — solvencia ajustada             </div>`)[0];
+                popup_ffd8ac116ca8365d705ff1038e5040c3.setContent(html_42a286cac98a2a4b76b057fbbf09671c);
+            
+        
+
+        circle_marker_3bfd968043a407d0bfc439969ae3c731.bindPopup(popup_ffd8ac116ca8365d705ff1038e5040c3)
+        ;
+
+        
+    
+    
+            circle_marker_3bfd968043a407d0bfc439969ae3c731.bindTooltip(
+                `<div>
+                     Zamora
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_74b72b723a2280bb7afaba9c30a06394 = L.circleMarker(
+                [41.7895445, 1.088334],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_bf331c7db6c0c537ae68c8a2b8902d88 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6d935853d159db844fe9d009bc2b7e7f = $(`<div id="html_6d935853d159db844fe9d009bc2b7e7f" style="width: 100.0%; height: 100.0%;">             <b>Agramunt</b><br>             Posición: #89<br>             F-of-M: 0.149<br>             Renta hogar: 28,847€<br>             Mayores 75+: 595<br>             Perfil: Zona envejecida — solvencia ajustada             </div>`)[0];
+                popup_bf331c7db6c0c537ae68c8a2b8902d88.setContent(html_6d935853d159db844fe9d009bc2b7e7f);
+            
+        
+
+        circle_marker_74b72b723a2280bb7afaba9c30a06394.bindPopup(popup_bf331c7db6c0c537ae68c8a2b8902d88)
+        ;
+
+        
+    
+    
+            circle_marker_74b72b723a2280bb7afaba9c30a06394.bindTooltip(
+                `<div>
+                     Agramunt
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_549dc94595b2f06405f12245cd76ced3 = L.circleMarker(
+                [40.70727266666667, -3.4368833333333337],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_32410c58c08990a15bac2c160c45754b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_53018806309a1129e57ca3b1fa54635f = $(`<div id="html_53018806309a1129e57ca3b1fa54635f" style="width: 100.0%; height: 100.0%;">             <b>Casar, El</b><br>             Posición: #90<br>             F-of-M: 0.149<br>             Renta hogar: 33,501€<br>             Mayores 75+: 517<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_32410c58c08990a15bac2c160c45754b.setContent(html_53018806309a1129e57ca3b1fa54635f);
+            
+        
+
+        circle_marker_549dc94595b2f06405f12245cd76ced3.bindPopup(popup_32410c58c08990a15bac2c160c45754b)
+        ;
+
+        
+    
+    
+            circle_marker_549dc94595b2f06405f12245cd76ced3.bindTooltip(
+                `<div>
+                     Casar, El
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5fd187ef9d711c8773713f3e02a262c0 = L.circleMarker(
+                [42.1759284, 0.8767314],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_2511276ab21ad49ff1594c337838cb61 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_89be5bf0e54f2e617d722a7b0ad7110e = $(`<div id="html_89be5bf0e54f2e617d722a7b0ad7110e" style="width: 100.0%; height: 100.0%;">             <b>Tremp</b><br>             Posición: #91<br>             F-of-M: 0.149<br>             Renta hogar: 27,088€<br>             Mayores 75+: 806<br>             Perfil: Zona envejecida — solvencia ajustada             </div>`)[0];
+                popup_2511276ab21ad49ff1594c337838cb61.setContent(html_89be5bf0e54f2e617d722a7b0ad7110e);
+            
+        
+
+        circle_marker_5fd187ef9d711c8773713f3e02a262c0.bindPopup(popup_2511276ab21ad49ff1594c337838cb61)
+        ;
+
+        
+    
+    
+            circle_marker_5fd187ef9d711c8773713f3e02a262c0.bindTooltip(
+                `<div>
+                     Tremp
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6f54567eb6dcd1f9f35098325987c643 = L.circleMarker(
+                [41.903237, -0.78526975],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_3c97eb640bfbb01bfaca9f63ff6786b6 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_81fb59bbfdcf3d253a43203c823a2057 = $(`<div id="html_81fb59bbfdcf3d253a43203c823a2057" style="width: 100.0%; height: 100.0%;">             <b>Zuera</b><br>             Posición: #92<br>             F-of-M: 0.149<br>             Renta hogar: 30,476€<br>             Mayores 75+: 671<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_3c97eb640bfbb01bfaca9f63ff6786b6.setContent(html_81fb59bbfdcf3d253a43203c823a2057);
+            
+        
+
+        circle_marker_6f54567eb6dcd1f9f35098325987c643.bindPopup(popup_3c97eb640bfbb01bfaca9f63ff6786b6)
+        ;
+
+        
+    
+    
+            circle_marker_6f54567eb6dcd1f9f35098325987c643.bindTooltip(
+                `<div>
+                     Zuera
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ebaaeeeaeccf71fbf47f3dd32080bd12 = L.circleMarker(
+                [41.927184, -1.205199],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_b842b561a6e5ac8c2c0c61b9ada22b08 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_288bc31f92bef6eca0664ccdad6fc93f = $(`<div id="html_288bc31f92bef6eca0664ccdad6fc93f" style="width: 100.0%; height: 100.0%;">             <b>Tauste</b><br>             Posición: #93<br>             F-of-M: 0.149<br>             Renta hogar: 27,833€<br>             Mayores 75+: 804<br>             Perfil: Zona envejecida — solvencia ajustada             </div>`)[0];
+                popup_b842b561a6e5ac8c2c0c61b9ada22b08.setContent(html_288bc31f92bef6eca0664ccdad6fc93f);
+            
+        
+
+        circle_marker_ebaaeeeaeccf71fbf47f3dd32080bd12.bindPopup(popup_b842b561a6e5ac8c2c0c61b9ada22b08)
+        ;
+
+        
+    
+    
+            circle_marker_ebaaeeeaeccf71fbf47f3dd32080bd12.bindTooltip(
+                `<div>
+                     Tauste
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bfe5b14f9e705c6445b699d5cb448bee = L.circleMarker(
+                [39.46594284507042, -6.377811492957746],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_a40d2a471426f938450f685dae74ac32 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f660b67e0b9db6704bbbb6a12f2564e3 = $(`<div id="html_f660b67e0b9db6704bbbb6a12f2564e3" style="width: 100.0%; height: 100.0%;">             <b>Cáceres</b><br>             Posición: #94<br>             F-of-M: 0.148<br>             Renta hogar: 29,045€<br>             Mayores 75+: 8,271<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_a40d2a471426f938450f685dae74ac32.setContent(html_f660b67e0b9db6704bbbb6a12f2564e3);
+            
+        
+
+        circle_marker_bfe5b14f9e705c6445b699d5cb448bee.bindPopup(popup_a40d2a471426f938450f685dae74ac32)
+        ;
+
+        
+    
+    
+            circle_marker_bfe5b14f9e705c6445b699d5cb448bee.bindTooltip(
+                `<div>
+                     Cáceres
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_421357c74424c845f46c96aea48dee55 = L.circleMarker(
+                [41.66980254545455, -3.6853866363636367],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_21bbbe70f3308130ab94b57b14848575 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6891b09a1fe9a7bd978a540535cf6b23 = $(`<div id="html_6891b09a1fe9a7bd978a540535cf6b23" style="width: 100.0%; height: 100.0%;">             <b>Aranda de Duero</b><br>             Posición: #95<br>             F-of-M: 0.148<br>             Renta hogar: 28,540€<br>             Mayores 75+: 3,699<br>             Perfil: Zona envejecida — solvencia ajustada             </div>`)[0];
+                popup_21bbbe70f3308130ab94b57b14848575.setContent(html_6891b09a1fe9a7bd978a540535cf6b23);
+            
+        
+
+        circle_marker_421357c74424c845f46c96aea48dee55.bindPopup(popup_21bbbe70f3308130ab94b57b14848575)
+        ;
+
+        
+    
+    
+            circle_marker_421357c74424c845f46c96aea48dee55.bindTooltip(
+                `<div>
+                     Aranda de Duero
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7fcc61507b5481fd5698548395e49478 = L.circleMarker(
+                [40.073560625, -0.213856875],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_38c48a73f60d966cbb72f5795551ede5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8f10bdbd6bab9bf5d8323c96416c63be = $(`<div id="html_8f10bdbd6bab9bf5d8323c96416c63be" style="width: 100.0%; height: 100.0%;">             <b>Alcora, l'</b><br>             Posición: #96<br>             F-of-M: 0.147<br>             Renta hogar: 29,328€<br>             Mayores 75+: 1,007<br>             Perfil: Zona envejecida — solvencia ajustada             </div>`)[0];
+                popup_38c48a73f60d966cbb72f5795551ede5.setContent(html_8f10bdbd6bab9bf5d8323c96416c63be);
+            
+        
+
+        circle_marker_7fcc61507b5481fd5698548395e49478.bindPopup(popup_38c48a73f60d966cbb72f5795551ede5)
+        ;
+
+        
+    
+    
+            circle_marker_7fcc61507b5481fd5698548395e49478.bindTooltip(
+                `<div>
+                     Alcora, l'
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_75a68b61d7568e0cd255dbbffb789b7b = L.circleMarker(
+                [38.40051353846154, -0.4339552307692307],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_cfea7879f85ce00571bb681e81e7b930 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_9db11785f1b808d50267fa53a7a90773 = $(`<div id="html_9db11785f1b808d50267fa53a7a90773" style="width: 100.0%; height: 100.0%;">             <b>Sant Joan d'Alacant</b><br>             Posición: #97<br>             F-of-M: 0.147<br>             Renta hogar: 29,587€<br>             Mayores 75+: 2,164<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_cfea7879f85ce00571bb681e81e7b930.setContent(html_9db11785f1b808d50267fa53a7a90773);
+            
+        
+
+        circle_marker_75a68b61d7568e0cd255dbbffb789b7b.bindPopup(popup_cfea7879f85ce00571bb681e81e7b930)
+        ;
+
+        
+    
+    
+            circle_marker_75a68b61d7568e0cd255dbbffb789b7b.bindTooltip(
+                `<div>
+                     Sant Joan d'Alacant
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_58ab300fafa3f359d99708364e1c5de2 = L.circleMarker(
+                [40.948817777777776, -5.626232666666667],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_170bc4a96232f8da1f971e8858536543 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_77693d510f70497ae1843d09ca2e1a2c = $(`<div id="html_77693d510f70497ae1843d09ca2e1a2c" style="width: 100.0%; height: 100.0%;">             <b>Santa Marta de Tormes</b><br>             Posición: #98<br>             F-of-M: 0.147<br>             Renta hogar: 30,890€<br>             Mayores 75+: 930<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_170bc4a96232f8da1f971e8858536543.setContent(html_77693d510f70497ae1843d09ca2e1a2c);
+            
+        
+
+        circle_marker_58ab300fafa3f359d99708364e1c5de2.bindPopup(popup_170bc4a96232f8da1f971e8858536543)
+        ;
+
+        
+    
+    
+            circle_marker_58ab300fafa3f359d99708364e1c5de2.bindTooltip(
+                `<div>
+                     Santa Marta de Tormes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e33e12cd90f2cffa949162fc2336b552 = L.circleMarker(
+                [40.65218202564103, -4.686333487179487],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_81b68fa8dbd9f6c53c9a7c32986ec40b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1caaf942080341b3ab5519286153a2aa = $(`<div id="html_1caaf942080341b3ab5519286153a2aa" style="width: 100.0%; height: 100.0%;">             <b>Ávila</b><br>             Posición: #99<br>             F-of-M: 0.147<br>             Renta hogar: 27,700€<br>             Mayores 75+: 6,078<br>             Perfil: Municipio equilibrado — perfil estándar             </div>`)[0];
+                popup_81b68fa8dbd9f6c53c9a7c32986ec40b.setContent(html_1caaf942080341b3ab5519286153a2aa);
+            
+        
+
+        circle_marker_e33e12cd90f2cffa949162fc2336b552.bindPopup(popup_81b68fa8dbd9f6c53c9a7c32986ec40b)
+        ;
+
+        
+    
+    
+            circle_marker_e33e12cd90f2cffa949162fc2336b552.bindTooltip(
+                `<div>
+                     Ávila
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_aa5829d5d49b735ef7bf529b75abc26a = L.circleMarker(
+                [41.485070666666665, -2.5404786666666666],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_901fe8a95a91bfc3b4a5755fe767d86e);
+        
+    
+        var popup_dbba4c4af5da6d830fde40cb2130db7f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d9d9b1fc7eeaedbd5947fff98f04eefb = $(`<div id="html_d9d9b1fc7eeaedbd5947fff98f04eefb" style="width: 100.0%; height: 100.0%;">             <b>Almazán</b><br>             Posición: #100<br>             F-of-M: 0.146<br>             Renta hogar: 26,478€<br>             Mayores 75+: 694<br>             Perfil: Zona envejecida — solvencia ajustada             </div>`)[0];
+                popup_dbba4c4af5da6d830fde40cb2130db7f.setContent(html_d9d9b1fc7eeaedbd5947fff98f04eefb);
+            
+        
+
+        circle_marker_aa5829d5d49b735ef7bf529b75abc26a.bindPopup(popup_dbba4c4af5da6d830fde40cb2130db7f)
+        ;
+
+        
+    
+    
+            circle_marker_aa5829d5d49b735ef7bf529b75abc26a.bindTooltip(
+                `<div>
+                     Almazán
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>
