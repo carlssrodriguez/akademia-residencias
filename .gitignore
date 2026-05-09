@@ -1,5 +1,7 @@
 # Archivos de datos crudos — demasiado grandes para GitHub
 *.ods
+*.xlsx
+*.xls
 
 # CSVs intermedios grandes — se regeneran con el código
 piramide_limpia.csv
