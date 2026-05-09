@@ -59,15 +59,15 @@ akademia-residencias/
 
 ## Fuentes de datos
 
-| Fuente | Dataset | Granularidad |
-|--------|---------|--------------|
-| INE | Padrón municipal — pirámide poblacional | Sección censal (~36.000) |
-| INE | Renta media por hogar 2024 | Municipio |
-| INE | Proyección de hogares unipersonales 2024-2039 | Provincia |
-| INE | Proyección de población mayor 2024-2039 | Nacional |
-| Ministerio de Sanidad | Catálogo Nacional de Hospitales 2025 | Municipio |
-| IMSERSO | Oferta residencial e índice de cobertura 2024 | Comunidad Autónoma |
-| INE | Coordenadas geográficas por sección censal | Sección censal |
+| Fuente                | Dataset                                       | Granularidad             |
+| --------------------- | --------------------------------------------- | ------------------------ |
+| INE                   | Padrón municipal — pirámide poblacional       | Sección censal (~36.000) |
+| INE                   | Renta media por hogar 2024                    | Municipio                |
+| INE                   | Proyección de hogares unipersonales 2024-2039 | Provincia                |
+| INE                   | Proyección de población mayor 2024-2039       | Nacional                 |
+| Ministerio de Sanidad | Catálogo Nacional de Hospitales 2025          | Municipio                |
+| IMSERSO               | Oferta residencial e índice de cobertura 2024 | Comunidad Autónoma       |
+| INE                   | Coordenadas geográficas por sección censal    | Sección censal           |
 
 > Los archivos de datos crudos (ODS originales del INE) no están incluidos en el repositorio por su tamaño (106MB). Los datasets limpios generados por el pipeline sí están disponibles.
 
@@ -76,9 +76,11 @@ akademia-residencias/
 ## Metodología
 
 ### 1. Data Engineering (M1)
+
 Lectura incremental de un archivo ODS de 106MB con XML interno de 1.3GB mediante parser iterativo que evita cargar el archivo completo en memoria. Limpieza y normalización de tres datasets heterogéneos del INE.
 
 ### 2. Feature Engineering (M2)
+
 Cálculo de 24 variables de negocio sobre las 36.334 secciones censales de España:
 
 - **Demanda**: volumen y porcentaje de mayores de 75+, cohorte futura proyectada a 2029
@@ -88,6 +90,7 @@ Cálculo de 24 variables de negocio sobre las 36.334 secciones censales de Espa�
 - **Proyección**: tasa de crecimiento real del INE aplicada a la cohorte futura (+6,2% hasta 2029)
 
 ### 3. Modelo F-of-M (M3)
+
 Índice de atractivo territorial con normalización min-max y pesos definidos por criterio de negocio:
 
 ```
@@ -97,16 +100,18 @@ F-of-M = 0.30 · Solvencia + 0.25 · Demanda + 0.25 · Soledad + 0.15 · Concent
 Aplicación de filtro duro de solvencia (zonas no solventes = puntuación 0), agregación por municipio y selección final con restricciones de tamaño mínimo de mercado (≥ 500 personas de 75+) y diversificación geográfica (máximo 3 municipios por provincia).
 
 ### 4. Clustering K-Means (M4)
+
 Segmentación de las 100 ubicaciones en 4 perfiles estratégicos mediante K-Means con StandardScaler. Selección de K=4 por silhouette score y criterio de interpretabilidad de negocio.
 
-| Perfil | Municipios | Renta media | F-of-M medio |
-|--------|-----------|-------------|--------------|
-| Zona premium — máxima solvencia | 5 | 67.280€ | 0.496 |
-| Gran ciudad — mercado masivo | 11 | 30.034€ | 0.277 |
-| Municipio equilibrado — perfil estándar | 30 | 31.317€ | 0.259 |
-| Zona envejecida — solvencia ajustada | 54 | 30.271€ | 0.257 |
+| Perfil                                  | Municipios | Renta media | F-of-M medio |
+| --------------------------------------- | ---------- | ----------- | ------------ |
+| Zona premium — máxima solvencia         | 5          | 67.280€     | 0.496        |
+| Gran ciudad — mercado masivo            | 11         | 30.034€     | 0.277        |
+| Municipio equilibrado — perfil estándar | 30         | 31.317€     | 0.259        |
+| Zona envejecida — solvencia ajustada    | 54         | 30.271€     | 0.257        |
 
 ### 5. Visualización (M5)
+
 Mapa interactivo con folium (coordenadas GPS por sección censal del INE), gráficos de análisis con matplotlib y seaborn, y exportación a Excel para el equipo no técnico.
 
 ---
@@ -165,4 +170,42 @@ Desarrollado como caso práctico para la **Akademia Future Builders** de la **Fu
 
 ---
 
-*Desarrollado con Python · Datos públicos INE, IMSERSO y Ministerio de Sanidad · Abril 2026*
+_Desarrollado con Python · Datos públicos INE, IMSERSO y Ministerio de Sanidad · Abril 2026_
+
+## Fuentes de datos
+
+El dataset maestro se construye a partir de ocho archivos de cinco organismos públicos distintos. Los archivos de datos crudos no están incluidos en el repositorio por su tamaño, pero se indican las fuentes originales para poder reproducir el análisis.
+
+### INE — Instituto Nacional de Estadística
+
+| Dataset                                       | Descripción                                                                                     | URL                                                                                                                             |
+| --------------------------------------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| Padrón municipal — pirámide poblacional       | Población por sexo y grupos de edad de 5 en 5 años para las 36.334 secciones censales de España | [ine.es](https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736177012&menu=resultados&idp=1254734710990) |
+| Renta media por hogar 2024                    | Renta media por persona y hogar para 6.811 municipios                                           | [ine.es/jaxiT3](https://www.ine.es/jaxiT3/Tabla.htm?t=30896)                                                                    |
+| Coordenadas geográficas por sección censal    | Latitud y longitud del centroide de cada sección censal                                         | [ine.es](https://www.ine.es)                                                                                                    |
+| Proyección de hogares unipersonales 2024-2039 | Hogares de una sola persona mayor de 70 años por provincia                                      | [ine.es](https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736176953&menu=resultados&idp=1254735573113) |
+| Proyección de población mayor 2024-2039       | Tasa de crecimiento anual de mayores de 70 años a nivel nacional                                | [ine.es](https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736176953&menu=resultados&idp=1254735573113) |
+
+### Ministerio de Sanidad
+
+| Dataset                              | Descripción                                              | URL                                                                                                              |
+| ------------------------------------ | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| Catálogo Nacional de Hospitales 2025 | 848 centros hospitalarios con municipio y tipo de centro | [sanidad.gob.es](https://www.sanidad.gob.es/estadEstudios/estadisticas/estHospiInternado/inforAnual/homeESP.htm) |
+
+### IMSERSO
+
+| Dataset                                   | Descripción                                         | URL                                                                    |
+| ----------------------------------------- | --------------------------------------------------- | ---------------------------------------------------------------------- |
+| Oferta residencial por Comunidad Autónoma | Plazas residenciales e índice de cobertura por CCAA | [imserso.es](https://www.imserso.es/imserso_01/estadisticas/index.htm) |
+
+### Seguridad Social
+
+| Dataset                                       | Descripción                                                          | URL                                                                                                                     |
+| --------------------------------------------- | -------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Pensiones en vigor por municipio — enero 2025 | Pensión media mensual y número de pensionistas para 8.136 municipios | [seg-social.es](https://www.seg-social.es/wps/portal/wss/internet/EstadisticasPresupuestosEstudios/Estadisticas/EST211) |
+
+### Ministerio de Transportes
+
+| Dataset                                                | Descripción                                                             | URL                                                                                                                                                                                            |
+| ------------------------------------------------------ | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Valor tasado de vivienda libre por municipio — Q4 2025 | Precio medio del m² para los 306 municipios de más de 25.000 habitantes | [mitma.gob.es](https://www.mitma.gob.es/el-ministerio/informacion-estadistica/vivienda-y-actuaciones-urbanas/estadisticas/estadisticas-de-precios-de-suelo-urbano/valor-tasado-de-la-vivienda) |
