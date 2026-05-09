@@ -178,34 +178,34 @@ El dataset maestro se construye a partir de ocho archivos de cinco organismos p�
 
 ### INE — Instituto Nacional de Estadística
 
-| Dataset                                       | Descripción                                                                                     | URL                                                                                                                             |
-| --------------------------------------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| Padrón municipal — pirámide poblacional       | Población por sexo y grupos de edad de 5 en 5 años para las 36.334 secciones censales de España | [ine.es](https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736177012&menu=resultados&idp=1254734710990) |
-| Renta media por hogar 2024                    | Renta media por persona y hogar para 6.811 municipios                                           | [ine.es/jaxiT3](https://www.ine.es/jaxiT3/Tabla.htm?t=30896)                                                                    |
-| Coordenadas geográficas por sección censal    | Latitud y longitud del centroide de cada sección censal                                         | [ine.es](https://www.ine.es)                                                                                                    |
-| Proyección de hogares unipersonales 2024-2039 | Hogares de una sola persona mayor de 70 años por provincia                                      | [ine.es](https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736176953&menu=resultados&idp=1254735573113) |
-| Proyección de población mayor 2024-2039       | Tasa de crecimiento anual de mayores de 70 años a nivel nacional                                | [ine.es](https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736176953&menu=resultados&idp=1254735573113) |
+| Dataset                                       | Descripción                                                                                                                              |
+| --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Padrón municipal — pirámide poblacional       | Población por sexo y grupos de edad de 5 en 5 años para las 36.334 secciones censales de España. Base de todas las variables de demanda. |
+| Renta media por hogar 2024                    | Renta media neta por persona y hogar para 6.811 municipios. Fuente del componente de Solvencia.                                          |
+| Coordenadas geográficas por sección censal    | Latitud y longitud del centroide de cada sección censal. Permite la visualización en mapa.                                               |
+| Proyección de hogares unipersonales 2024-2039 | Hogares de una sola persona mayor de 70 años por provincia hasta 2039. Refuerza el componente de Soledad.                                |
+| Proyección de población mayor 2024-2039       | Tasa de crecimiento anual de mayores de 70 años a nivel nacional. Usada para proyectar la cohorte futura a 2029 (+6,2% acumulado).       |
 
 ### Ministerio de Sanidad
 
-| Dataset                              | Descripción                                              | URL                                                                                                              |
-| ------------------------------------ | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| Catálogo Nacional de Hospitales 2025 | 848 centros hospitalarios con municipio y tipo de centro | [sanidad.gob.es](https://www.sanidad.gob.es/estadEstudios/estadisticas/estHospiInternado/inforAnual/homeESP.htm) |
+| Dataset                              | Descripción                                                                                                               |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------- |
+| Catálogo Nacional de Hospitales 2025 | 848 centros hospitalarios con municipio y tipo de centro. Fuente de las variables `tiene_hospital` y `hosp_en_provincia`. |
 
 ### IMSERSO
 
-| Dataset                                   | Descripción                                         | URL                                                                    |
-| ----------------------------------------- | --------------------------------------------------- | ---------------------------------------------------------------------- |
-| Oferta residencial por Comunidad Autónoma | Plazas residenciales e índice de cobertura por CCAA | [imserso.es](https://www.imserso.es/imserso_01/estadisticas/index.htm) |
+| Dataset                                   | Descripción                                                                                             |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| Oferta residencial por Comunidad Autónoma | Plazas residenciales e índice de cobertura por CCAA. Fuente del componente de Concentración del F-of-M. |
 
 ### Seguridad Social
 
-| Dataset                                       | Descripción                                                          | URL                                                                                                                     |
-| --------------------------------------------- | -------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| Pensiones en vigor por municipio — enero 2025 | Pensión media mensual y número de pensionistas para 8.136 municipios | [seg-social.es](https://www.seg-social.es/wps/portal/wss/internet/EstadisticasPresupuestosEstudios/Estadisticas/EST211) |
+| Dataset                                                     | Descripción                                                                                                  |
+| ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| Pensiones contributivas en vigor por municipio — enero 2025 | Pensión media mensual y número de pensionistas para 8.136 municipios. Fuente de la variable `pension_media`. |
 
 ### Ministerio de Transportes
 
-| Dataset                                                | Descripción                                                             | URL                                                                                                                                                                                            |
-| ------------------------------------------------------ | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Valor tasado de vivienda libre por municipio — Q4 2025 | Precio medio del m² para los 306 municipios de más de 25.000 habitantes | [mitma.gob.es](https://www.mitma.gob.es/el-ministerio/informacion-estadistica/vivienda-y-actuaciones-urbanas/estadisticas/estadisticas-de-precios-de-suelo-urbano/valor-tasado-de-la-vivienda) |
+| Dataset                                                | Descripción                                                                                                                                             |
+| ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Valor tasado de vivienda libre por municipio — Q4 2025 | Precio medio del m² para los 306 municipios de más de 25.000 habitantes, con fallback provincial para municipios pequeños. Fuente de `precio_m2_final`. |
