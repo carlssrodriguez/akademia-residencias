@@ -1,19 +1,19 @@
-# Residencias de Mayores — Algoritmo de Selección de Ubicaciones
+# Senior Housing Location Algorithm — Spain
 
-> Proyecto de Data Science desarrollado para la Akademia Future Builders de Fundación Innovación Bankinter.  
-> Selección de las 100 ubicaciones óptimas en España para la apertura de residencias de mayores, mediante un índice de atractivo territorial construido sobre datos públicos del INE, IMSERSO y Ministerio de Sanidad.
-
----
-
-## Resumen del proyecto
-
-El reto consistía en actuar como comité de dirección de una cadena de residencias de mayores y proponer 100 ubicaciones candidatas en España, con una justificación estratégica y cuantitativa sólida.
-
-El resultado es un **pipeline completo de Data Science** que parte de datos crudos del INE (106MB, 36.334 secciones censales), cruza siete fuentes de datos públicas, calcula 24 variables de negocio, construye un índice F-of-M ponderado y selecciona las 100 mejores ubicaciones con diversificación geográfica garantizada.
+> Data Science project developed for the **Akademia Future Builders** programme by **Fundación Innovación Bankinter**.  
+> Selection of 100 optimal locations across Spain for senior care facilities, using a weighted territorial attractiveness index built on public data from INE, IMSERSO, Social Security and the Ministry of Transport.
 
 ---
 
-## Stack técnico
+## Overview
+
+Acting as the board of directors of a senior care chain, the challenge was to propose 100 candidate locations across Spain with a rigorous, data-driven justification. The business constraints: €2,100/month per resident, 85% occupancy target, and zero-tolerance for payment defaults.
+
+The result is a full Data Science pipeline that processes 106MB of raw census data across 36,334 census sections, crosses eight public data sources, engineers 31 business variables, builds a custom F-of-M (Figure of Merit) index and selects the top 100 locations with guaranteed geographic diversification.
+
+---
+
+## Tech stack
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
 ![pandas](https://img.shields.io/badge/pandas-2.1-lightblue?logo=pandas)
@@ -27,185 +27,173 @@ Python 3.11 · pandas · numpy · scikit-learn · folium · matplotlib · seabor
 
 ---
 
-## Estructura del proyecto
+## Project structure
 
 ```
 akademia-residencias/
 │
-├── M1_pipeline_datos.ipynb          # Data Engineering: lectura y limpieza de datos crudos
-├── M2_variables_demanda.ipynb       # Feature Engineering: cálculo de variables de negocio
-├── M2_actualizacion.ipynb           # Integración de nuevas fuentes de datos
-├── M3_fofm.ipynb                    # Modelo F-of-M v1 (sin datos de competencia)
-├── M3_fofm_actualizado.ipynb        # Modelo F-of-M completo con 5 componentes
-├── M4_clustering.ipynb              # K-Means: segmentación en perfiles estratégicos
-├── M5_visualizaciones.ipynb         # Visualizaciones: mapa interactivo y gráficos
+├── notebooks/
+│   ├── M1_pipeline_datos.ipynb          # Data engineering: raw data ingestion and cleaning
+│   ├── M2a_demanda_y_soledad.ipynb      # Feature engineering: demand and loneliness variables
+│   ├── M2b_variables_economicas.ipynb   # Feature engineering: pension, house price, substitution rate
+│   ├── M3_fofm.ipynb                    # F-of-M index: scoring and top 100 selection
+│   ├── M4_clustering.ipynb              # K-Means: strategic profile segmentation
+│   └── M5_visualizaciones.ipynb         # Visualisations: interactive map and charts
 │
-├── dataset_maestro.csv              # Dataset central: 36.334 secciones × 24 variables
-├── top100_ubicaciones.csv           # Las 100 ubicaciones finalistas
-├── top100_con_clusters.csv          # Top 100 con perfil estratégico asignado
-├── ranking_municipios.csv           # Ranking completo de 2.825 municipios candidatos
-├── resumen_provincias.csv           # Agregado por provincia
-├── resultados_akademia.xlsx         # Excel con todas las pestañas para el equipo
+├── data/
+│   ├── dataset_maestro.csv              # Master dataset: 36,334 sections × 31 variables
+│   ├── localizacion_limpia.csv          # GPS coordinates per census section
+│   ├── municipios_limpios.csv           # 8,124 Spanish municipalities with codes and names
+│   └── renta_limpia.csv                 # Household income per municipality (INE 2024)
 │
-├── mapa_top100.html                 # Mapa interactivo (abrir en navegador)
-├── grafico_perfiles.png             # Distribución por perfil estratégico
-├── grafico_top20.png                # Ranking visual del top 20
-├── grafico_solvencia_mercado.png    # Scatter solvencia vs tamaño de mercado
+├── outputs/
+│   ├── top100_ubicaciones.csv           # Final 100 locations with all metrics
+│   ├── top100_con_clusters.csv          # Top 100 with strategic profile assigned
+│   ├── ranking_municipios.csv           # Full ranking of 2,825 candidate municipalities
+│   ├── resumen_provincias.csv           # Aggregated results by province
+│   ├── resultados_akademia.xlsx         # Excel with all result tabs
+│   ├── mapa_top100.html                 # Interactive map — open in browser
+│   ├── grafico_perfiles.png             # Profile distribution chart
+│   ├── grafico_top20.png                # Top 20 visual ranking
+│   └── grafico_solvencia_mercado.png    # Solvency vs market size scatter
 │
+├── docs/
+│   └── CasoPractico-2025.pdf            # Original case brief
+│
+├── .gitignore
 └── README.md
 ```
 
 ---
 
-## Fuentes de datos
+## Methodology
 
-| Fuente                | Dataset                                       | Granularidad             |
-| --------------------- | --------------------------------------------- | ------------------------ |
-| INE                   | Padrón municipal — pirámide poblacional       | Sección censal (~36.000) |
-| INE                   | Renta media por hogar 2024                    | Municipio                |
-| INE                   | Proyección de hogares unipersonales 2024-2039 | Provincia                |
-| INE                   | Proyección de población mayor 2024-2039       | Nacional                 |
-| Ministerio de Sanidad | Catálogo Nacional de Hospitales 2025          | Municipio                |
-| IMSERSO               | Oferta residencial e índice de cobertura 2024 | Comunidad Autónoma       |
-| INE                   | Coordenadas geográficas por sección censal    | Sección censal           |
+### 1. Data engineering — M1
 
-> Los archivos de datos crudos (ODS originales del INE) no están incluidos en el repositorio por su tamaño (106MB). Los datasets limpios generados por el pipeline sí están disponibles.
+The INE census pyramid file is 106MB compressed with a 1.3GB internal XML. Loading it entirely into memory exhausts available RAM. The pipeline uses an incremental XML parser with `xml.etree.ElementTree`, processing and releasing each row, staying well under 500MB peak usage.
 
----
+### 2. Feature engineering — M2
 
-## Metodología
+31 variables engineered across 36,334 census sections:
 
-### 1. Data Engineering (M1)
+| Component | Variables |
+|-----------|-----------|
+| **Solvency** | Household income (INE 2024), average pension per municipality (Social Security Jan 2025), house price per m² (Ministry of Transport Q4 2025) |
+| **Demand** | Population 75+, % population 75+, population 80+, future cohort projected to 2029 |
+| **Loneliness** | Widowhood ratio (women 80+ / men 80+), single-person households projection 2029 |
+| **Competition** | Residential coverage index (IMSERSO), hospital presence |
+| **Future** | Projected cohort 2029 (+6.2% cumulative growth rate), substitution rate |
 
-Lectura incremental de un archivo ODS de 106MB con XML interno de 1.3GB mediante parser iterativo que evita cargar el archivo completo en memoria. Limpieza y normalización de tres datasets heterogéneos del INE.
+### 3. F-of-M index — M3
 
-### 2. Feature Engineering (M2)
-
-Cálculo de 24 variables de negocio sobre las 36.334 secciones censales de España:
-
-- **Demanda**: volumen y porcentaje de mayores de 75+, cohorte futura proyectada a 2029
-- **Solvencia**: renta media del hogar, filtro duro de no morosidad (≥ 25.200€/año)
-- **Soledad**: ratio de viudez (mujeres 80+ / hombres 80+), hogares unipersonales proyectados
-- **Competencia**: índice de cobertura residencial IMSERSO, presencia de hospital general
-- **Proyección**: tasa de crecimiento real del INE aplicada a la cohorte futura (+6,2% hasta 2029)
-
-### 3. Modelo F-of-M (M3)
-
-Índice de atractivo territorial con normalización min-max y pesos definidos por criterio de negocio:
+Custom weighted territorial attractiveness index with min-max normalisation:
 
 ```
-F-of-M = 0.30 · Solvencia + 0.25 · Demanda + 0.25 · Soledad + 0.15 · Concentración + 0.05 · Futuro
+F-of-M = 0.30 · Solvency + 0.25 · Demand + 0.25 · Loneliness + 0.15 · Competition + 0.05 · Future
 ```
 
-Aplicación de filtro duro de solvencia (zonas no solventes = puntuación 0), agregación por municipio y selección final con restricciones de tamaño mínimo de mercado (≥ 500 personas de 75+) y diversificación geográfica (máximo 3 municipios por provincia).
+- **Solvency** breaks down as: household income 15% + pension 10% + house price 5%
+- Hard solvency filter: sections with household income below €25,200/year receive score 0 regardless of other variables
+- Minimum market size: 500+ people aged 75+ per municipality
+- Geographic diversification: maximum 3 municipalities per province
 
-### 4. Clustering K-Means (M4)
+### 4. K-Means clustering — M4
 
-Segmentación de las 100 ubicaciones en 4 perfiles estratégicos mediante K-Means con StandardScaler. Selección de K=4 por silhouette score y criterio de interpretabilidad de negocio.
+Segmentation of the 100 locations into 4 strategic profiles using K-Means with StandardScaler. K=4 selected by silhouette score.
 
-| Perfil                                  | Municipios | Renta media | F-of-M medio |
-| --------------------------------------- | ---------- | ----------- | ------------ |
-| Zona premium — máxima solvencia         | 5          | 67.280€     | 0.496        |
-| Gran ciudad — mercado masivo            | 11         | 30.034€     | 0.277        |
-| Municipio equilibrado — perfil estándar | 30         | 31.317€     | 0.259        |
-| Zona envejecida — solvencia ajustada    | 54         | 30.271€     | 0.257        |
+| Profile | Municipalities | Avg. income | Avg. 75+ pop. | F-of-M |
+|---------|---------------|-------------|---------------|--------|
+| Premium — maximum solvency | 4 | €66,070 | 4,997 | 0.509 |
+| Major city — mass market | 4 | €32,320 | 103,064 | 0.349 |
+| Mid-size city — relevant market | 37 | €30,502 | 19,065 | 0.283 |
+| Ageing zone — adjusted solvency | 55 | €29,910 | 5,158 | 0.273 |
 
-### 5. Visualización (M5)
+### 5. Visualisation — M5
 
-Mapa interactivo con folium (coordenadas GPS por sección censal del INE), gráficos de análisis con matplotlib y seaborn, y exportación a Excel para el equipo no técnico.
-
----
-
-## Resultados principales
-
-- **36.334 secciones censales** evaluadas en toda España
-- **11.896 secciones descartadas** por no superar el filtro de solvencia
-- **2.825 municipios candidatos** identificados
-- **100 ubicaciones finalistas** en **49 provincias**
-- Top 3: Pozuelo de Alarcón (F-of-M: 0.581), Boadilla del Monte (0.497), Majadahonda (0.487)
+Interactive map built with folium using GPS coordinates per census section. Charts generated with matplotlib and seaborn. Results exported to Excel for non-technical stakeholders.
 
 ---
 
-## Cómo ejecutar el proyecto
+## Results
+
+- **36,334 census sections** evaluated across Spain
+- **11,896 sections discarded** for failing the solvency filter
+- **2,825 candidate municipalities** identified
+- **100 final locations** across **46 provinces**
+
+**Top 5 locations:**
+
+| # | Municipality | Income | Avg. pension | House price | 75+ pop. | F-of-M |
+|---|-------------|--------|--------------|-------------|----------|--------|
+| 1 | Pozuelo de Alarcón (Madrid) | €83,812 | €1,853/mo | €5,102/m² | 7,192 | 0.553 |
+| 2 | Majadahonda (Madrid) | €60,937 | €1,884/mo | €4,619/m² | 5,384 | 0.502 |
+| 3 | Torrelodones (Madrid) | €61,366 | €1,824/mo | €4,455/m² | 1,446 | 0.497 |
+| 4 | Sant Cugat del Vallès (Barcelona) | €58,164 | €1,712/mo | €4,856/m² | 5,967 | 0.485 |
+| 5 | Barcelona | €37,371 | €1,526/mo | €4,501/m² | 186,908 | 0.438 |
+
+---
+
+## Getting started
 
 ```bash
-# 1. Clonar el repositorio
-git clone https://github.com/tu-usuario/akademia-residencias.git
+# 1. Clone the repository
+git clone https://github.com/carlssrodriguez/akademia-residencias.git
 cd akademia-residencias
 
-# 2. Crear entorno virtual
+# 2. Create virtual environment
 python -m venv .venv
-.venv\Scripts\activate  # Windows
-source .venv/bin/activate  # Mac/Linux
+.venv\Scripts\activate       # Windows
+source .venv/bin/activate    # Mac/Linux
 
-# 3. Instalar dependencias
+# 3. Install dependencies
 pip install pandas numpy scikit-learn folium matplotlib seaborn openpyxl notebook ipykernel odfpy
 
-# 4. Abrir Jupyter
-jupyter notebook
+# 4. Run notebooks in order
+# M1 → M2a → M2b → M3 → M4 → M5
 ```
 
-Ejecutar los notebooks en orden: M1 → M2 → M2_actualizacion → M3_fofm_actualizado → M4 → M5.
-
-> **Nota**: Los archivos ODS originales del INE deben descargarse por separado y colocarse en la raíz del proyecto antes de ejecutar M1.
+> **Note**: Raw ODS source files from INE are not included in the repository due to size. They must be downloaded separately and placed in the project root before running M1. `piramide_limpia.csv` is also excluded for the same reason — it is generated by M1.
 
 ---
 
-## Decisiones metodológicas destacadas
+## Data sources
 
-**¿Por qué Valencia aparece en el top 10 si la renta es menor que Madrid?**  
-El modelo penaliza las CCAA con alta oferta residencial existente. La Comunitat Valenciana tiene un índice de cobertura de 1,77 plazas por cada 100 mayores (el más bajo de las grandes CCAA), frente a 6,04 de Castilla y León. Con 84.138 personas de 75+ y mercado poco saturado, Valencia representa un océano azul estratégico.
+Eight files from five public organisations. Raw files are not versioned in this repository.
 
-**¿Por qué un modelo explicable en lugar de ML supervisado?**  
-Una decisión de inversión de esta magnitud requiere que cada puntuación sea justificable. El F-of-M permite responder exactamente por qué cualquier municipio tiene la puntuación que tiene. Se realizó análisis de sensibilidad sobre los pesos confirmando la robustez del modelo.
+### INE — National Statistics Institute
 
-**¿Por qué leer el ODS con parser XML iterativo?**  
-El archivo de pirámide poblacional del INE tiene un XML interno de 1.3GB. `pd.read_excel()` intentaría cargarlo entero en memoria y agota los 4GB del sistema. El parser iterativo con `xml.etree.ElementTree` procesa y libera cada fila, manteniéndose por debajo de 500MB de uso.
+| Dataset | Description |
+|---------|-------------|
+| Municipal census — population pyramid | Population by sex and 5-year age groups for all 36,334 census sections. Base of all demand variables. |
+| Household income 2024 | Net mean income per person and household for 6,811 municipalities. Source of the Solvency component. |
+| Geographic coordinates per census section | Latitude and longitude of each census section centroid. Used for map visualisation. |
+| Single-person household projection 2024-2039 | Households of one person aged 70+ by province until 2039. Reinforces the Loneliness component. |
+| Elderly population projection 2024-2039 | Annual growth rate of population aged 70+ at national level. Used to project future cohort to 2029. |
 
----
+### Ministry of Health
 
-## Contexto
-
-Desarrollado como caso práctico para la **Akademia Future Builders** de la **Fundación Innovación Bankinter**, programa de formación en innovación y tecnología para jóvenes.
-
----
-
-_Desarrollado con Python · Datos públicos INE, IMSERSO y Ministerio de Sanidad · Abril 2026_
-
-## Fuentes de datos
-
-El dataset maestro se construye a partir de ocho archivos de cinco organismos públicos distintos. Los archivos de datos crudos no están incluidos en el repositorio por su tamaño, pero se indican las fuentes originales para poder reproducir el análisis.
-
-### INE — Instituto Nacional de Estadística
-
-| Dataset                                       | Descripción                                                                                                                              |
-| --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| Padrón municipal — pirámide poblacional       | Población por sexo y grupos de edad de 5 en 5 años para las 36.334 secciones censales de España. Base de todas las variables de demanda. |
-| Renta media por hogar 2024                    | Renta media neta por persona y hogar para 6.811 municipios. Fuente del componente de Solvencia.                                          |
-| Coordenadas geográficas por sección censal    | Latitud y longitud del centroide de cada sección censal. Permite la visualización en mapa.                                               |
-| Proyección de hogares unipersonales 2024-2039 | Hogares de una sola persona mayor de 70 años por provincia hasta 2039. Refuerza el componente de Soledad.                                |
-| Proyección de población mayor 2024-2039       | Tasa de crecimiento anual de mayores de 70 años a nivel nacional. Usada para proyectar la cohorte futura a 2029 (+6,2% acumulado).       |
-
-### Ministerio de Sanidad
-
-| Dataset                              | Descripción                                                                                                               |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------- |
-| Catálogo Nacional de Hospitales 2025 | 848 centros hospitalarios con municipio y tipo de centro. Fuente de las variables `tiene_hospital` y `hosp_en_provincia`. |
+| Dataset | Description |
+|---------|-------------|
+| National Hospital Catalogue 2025 | 848 hospital centres with municipality and type. Source of `tiene_hospital` and `hosp_en_provincia`. |
 
 ### IMSERSO
 
-| Dataset                                   | Descripción                                                                                             |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| Oferta residencial por Comunidad Autónoma | Plazas residenciales e índice de cobertura por CCAA. Fuente del componente de Concentración del F-of-M. |
+| Dataset | Description |
+|---------|-------------|
+| Residential care supply by Autonomous Community | Care home places and coverage index by region. Source of the Competition component. |
 
-### Seguridad Social
+### Social Security
 
-| Dataset                                                     | Descripción                                                                                                  |
-| ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| Pensiones contributivas en vigor por municipio — enero 2025 | Pensión media mensual y número de pensionistas para 8.136 municipios. Fuente de la variable `pension_media`. |
+| Dataset | Description |
+|---------|-------------|
+| Contributory pensions by municipality — January 2025 | Mean monthly pension and number of pensioners for 8,136 municipalities. Source of `pension_media`. |
 
-### Ministerio de Transportes
+### Ministry of Transport
 
-| Dataset                                                | Descripción                                                                                                                                             |
-| ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Valor tasado de vivienda libre por municipio — Q4 2025 | Precio medio del m² para los 306 municipios de más de 25.000 habitantes, con fallback provincial para municipios pequeños. Fuente de `precio_m2_final`. |
+| Dataset | Description |
+|---------|-------------|
+| Assessed housing value by municipality — Q4 2025 | Mean price per m² for the 306 municipalities with 25,000+ inhabitants, with provincial fallback for smaller ones. Source of `precio_m2_final`. |
+
+---
+
+*Built with Python · Public data from INE, IMSERSO, Social Security and Ministry of Transport · April 2026*
